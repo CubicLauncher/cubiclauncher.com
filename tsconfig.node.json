@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "extends": "@tsconfig/node22/tsconfig.json",
   "include": [
     "vite.config.*",
@@ -18,14 +17,3 @@
     "types": ["node"]
   }
 }
-=======
-  "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["vite.config.ts"]
-} 
->>>>>>> 1a849e340e48e0f2c80df648eabc3531a7693a89
