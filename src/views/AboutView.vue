@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-<template>
-  <div class="about">
-    <h1>about</h1>
-  </div>
-</template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
-=======
 <script setup lang="ts">
 </script>
 
@@ -98,4 +81,3 @@
     </div>
   </div>
 </template> 
->>>>>>> 1a849e340e48e0f2c80df648eabc3531a7693a89
