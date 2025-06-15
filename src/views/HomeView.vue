@@ -1,4 +1,14 @@
 <script setup lang="ts">
+<<<<<<< HEAD
+import LandingHero from '@/components/LandingHero.vue'
+</script>
+
+<template>
+  <main>
+    <LandingHero />
+  </main>
+</template>
+=======
 </script>
 
 <template>
@@ -85,3 +95,4 @@
     </div>
   </div>
 </template> 
+>>>>>>> 1a849e340e48e0f2c80df648eabc3531a7693a89
