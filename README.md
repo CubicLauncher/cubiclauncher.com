@@ -132,18 +132,10 @@ Para desplegar en producción:
 - **Iconos SVG**: Integrados directamente en los componentes
 - **Tipografía**: Fuente Inter de Google Fonts
 - **Gradientes**: Efectos visuales modernos
-
-## 📞 Soporte
-
-Si tienes alguna pregunta o necesitas ayuda:
-
-- **Email**: hola@cubicmc.me
-- **Documentación**: [Enlaces a documentación]
-- **Issues**: [Repositorio de GitHub]
-
+- 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Este proyecto está bajo la Licencia LGPL-2.1 license. Ver el archivo `LICENSE` para más detalles.
 
 ---
 
