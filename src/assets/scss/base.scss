@@ -1,6 +1,0 @@
-@use './colors' as colors;
-@use 'sass:map';
-
-body {
-  background-color: colors.$background;
-}
