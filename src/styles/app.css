@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cubic-950 text-white font-sf;
+    background: radial-gradient(ellipse at top, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  * {
+    @apply border-cubic-800;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-white hover:bg-cubic-100 text-cubic-900 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/25 relative overflow-hidden;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+  
+  .btn-secondary {
+    @apply bg-cubic-800/80 hover:bg-cubic-700/80 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 border border-cubic-700/50 backdrop-blur-sm;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-600 hover:bg-accent-500 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent-600/25;
+  }
+  
+  .card {
+    @apply bg-cubic-900/30 backdrop-blur-xl border border-cubic-800/30 rounded-2xl p-6 relative overflow-hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  }
+  
+  .card:hover {
+    @apply bg-cubic-800/40 border-cubic-700/50;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  .glass {
+    @apply bg-cubic-950/80 backdrop-blur-xl border border-cubic-800/50;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-cubic-200 to-cubic-300 bg-clip-text text-transparent;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #e5e5e5 25%, #d4d4d4 50%, #a3a3a3 75%, #737373 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+  
+  .glow {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  
+  .glow:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+  
+  .section-bg {
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
+    backdrop-filter: blur(20px);
+  }
+  
+  .feature-icon {
+    @apply relative;
+  }
+  
+  .feature-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(120, 119, 198, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .feature-icon:hover::after {
+    opacity: 1;
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 0.8);
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #525252 0%, #404040 50%, #525252 100%);
+  border-radius: 5px;
+  border: 1px solid rgba(10, 10, 10, 0.8);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #737373 0%, #525252 50%, #737373 100%);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #404040 0%, #262626 50%, #404040 100%);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(10, 10, 10, 0.8);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #525252 rgba(10, 10, 10, 0.8);
+}
+
+/* Smooth scrollbar animation */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Custom scrollbar for specific elements */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 0.6);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #525252 0%, #404040 100%);
+  border-radius: 3px;
+  border: 1px solid rgba(10, 10, 10, 0.6);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #737373 0%, #525252 100%);
+}
