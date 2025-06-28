@@ -29,7 +29,7 @@
       
       <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4">Política de Cookies</h1>
       <p class="text-xl text-cubic-300">
-        Información sobre el uso de cookies en CubicMC
+        Información sobre el uso de cookies en CubicLauncher
       </p>
     </div>
     
@@ -142,7 +142,7 @@
               </div>
               
               <div>
-                <h5 class="font-semibold text-white mb-2">En CubicMC:</h5>
+                <h5 class="font-semibold text-white mb-2">En CubicLauncher:</h5>
                 <p class="text-sm">
                   Puedes gestionar tus preferencias de cookies desde la configuración del launcher 
                   en cualquier momento.
@@ -182,18 +182,9 @@
               no dudes en contactarnos:
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="mailto:privacy@cubicmc.me" 
-                class="flex items-center space-x-3 p-4 bg-cubic-800/30 hover:bg-accent-600/10 rounded-lg transition-all duration-300 group"
-              >
-                <svg class="w-5 h-5 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                <span class="text-cubic-300 group-hover:text-white transition-colors duration-300">privacy@cubicmc.me</span>
-              </a>
               
               <a 
-                href="https://discord.gg/cubicmc" 
+                href="https://discord.com/invite/RxQMDvVYkt" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 class="flex items-center space-x-3 p-4 bg-cubic-800/30 hover:bg-accent-600/10 rounded-lg transition-all duration-300 group"

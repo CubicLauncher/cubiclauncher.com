@@ -22,7 +22,7 @@
   <div class="relative z-10 max-w-7xl mx-auto text-center">
     <div class="mb-8">
       <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-accent-600/20 text-accent-300 border border-accent-600/30 backdrop-blur-sm glow">
-        ✨ Nuevo - CubicMC
+        ✨ Nuevo - CubicLauncher
       </span>
     </div>
     

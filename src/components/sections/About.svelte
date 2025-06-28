@@ -20,7 +20,7 @@
           Acerca de
         </span>
         <span class="bg-gradient-to-r from-accent-400 via-accent-300 to-accent-500 bg-clip-text text-transparent animate-gradient">
-          CubicMC
+          CubicLauncher
         </span>
       </h2>
       <div class="w-24 h-1 bg-gradient-to-r from-accent-500 to-accent-400 mx-auto rounded-full"></div>
@@ -35,7 +35,7 @@
             El Launcher que <span class="bg-gradient-to-r from-accent-400 to-accent-500 bg-clip-text text-transparent">Minecraft</span> Merece
           </h3>
           <p class="text-xl text-cubic-300 leading-relaxed">
-            CubicMC es un launcher moderno y elegante diseñado para ofrecer la mejor experiencia posible. 
+            CubicLauncher es un launcher moderno y elegante diseñado para ofrecer la mejor experiencia posible. 
             Con un enfoque en la simplicidad y el rendimiento, te permite concentrarte en lo que realmente importa: 
             <span class="text-white font-semibold">disfrutar de Minecraft</span>.
           </p>
@@ -103,7 +103,7 @@
             <div>
               <h4 class="text-2xl font-bold text-white mb-3">100% Gratis y Código Abierto</h4>
               <p class="text-cubic-300 leading-relaxed">
-                CubicMC es completamente gratuito y de código abierto. Creemos que el software de calidad 
+                CubicLauncher es completamente gratuito y de código abierto. Creemos que el software de calidad 
                 debe estar disponible para todos, sin restricciones ni costos ocultos.
               </p>
             </div>

@@ -4,7 +4,7 @@
   const features = [
     {
       title: "Rápido",
-      description: "Inicio ultra rápido y navegación fluida. CubicMC está optimizado para ofrecer la mejor experiencia de rendimiento.",
+      description: "Inicio ultra rápido y navegación fluida. CubicLauncher está optimizado para ofrecer la mejor experiencia de rendimiento.",
       icon: Zap
     },
     {
@@ -19,7 +19,7 @@
     },
     {
       title: "Personalizable",
-      description: "Adapta CubicMC a tu estilo. Temas, colores y configuraciones personalizables para una experiencia única.",
+      description: "Adapta CubicLauncher a tu estilo. Temas, colores y configuraciones personalizables para una experiencia única.",
       icon: Palette
     },
     {
@@ -62,7 +62,7 @@
   
   <div class="relative z-10 max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">¿Qué hace especial a CubicMC?</h2>
+      <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">¿Qué hace especial a CubicLauncher?</h2>
       <p class="text-xl text-cubic-300 max-w-3xl mx-auto">
         Un launcher rápido, seguro y fácil de usar con un fuerte enfoque en la experiencia del usuario.
       </p>

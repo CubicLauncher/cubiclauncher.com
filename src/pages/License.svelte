@@ -27,9 +27,9 @@
         <span>Volver</span>
       </button>
       
-      <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4">Licencia LGPL-2.1</h1>
+      <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4">Licencias de CubicMC</h1>
       <p class="text-xl text-cubic-300">
-        GNU Lesser General Public License v2.1
+        LGPL-2.1 para librerías • GPL-3.0 para proyectos
       </p>
     </div>
     
@@ -37,10 +37,41 @@
     <div class="bg-cubic-900/50 backdrop-blur-xl rounded-2xl border border-cubic-800/30 p-8 lg:p-12">
       <div class="prose prose-invert max-w-none">
         <div class="space-y-8">
-          <!-- License Header -->
+          <!-- License Overview -->
+          <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <!-- LGPL-2.1 Section -->
+            <div class="bg-cubic-800/30 rounded-lg p-6 border border-accent-600/20">
+              <h3 class="text-xl font-bold text-accent-300 mb-3">📚 Librerías - LGPL-2.1</h3>
+              <p class="text-cubic-300 mb-4">
+                Nuestras librerías y componentes reutilizables utilizan la licencia LGPL-2.1, 
+                permitiendo mayor flexibilidad para su uso en proyectos comerciales.
+              </p>
+              <ul class="space-y-2 text-sm text-cubic-300">
+                <li>• Permite enlazar con software propietario</li>
+                <li>• Ideal para librerías y componentes</li>
+                <li>• Menos restrictiva que GPL</li>
+              </ul>
+            </div>
+            
+            <!-- GPL-3.0 Section -->
+            <div class="bg-cubic-800/30 rounded-lg p-6 border border-accent-600/20">
+              <h3 class="text-xl font-bold text-accent-300 mb-3">🚀 Proyectos - GPL-3.0</h3>
+              <p class="text-cubic-300 mb-4">
+                Nuestros proyectos principales utilizan la licencia GPL-3.0, 
+                asegurando que las modificaciones permanezcan abiertas.
+              </p>
+              <ul class="space-y-2 text-sm text-cubic-300">
+                <li>• Código abierto completo</li>
+                <li>• Modificaciones deben ser GPL</li>
+                <li>• Protege la libertad del software</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- LGPL-2.1 License Header -->
           <div class="text-center border-b border-cubic-800/30 pb-6">
             <h2 class="text-2xl font-bold text-white mb-4">GNU LESSER GENERAL PUBLIC LICENSE</h2>
-            <p class="text-cubic-300">Version 2.1, February 1999</p>
+            <p class="text-cubic-300">Version 2.1, February 1999 - Para librerías</p>
           </div>
           
           <!-- Copyright Notice -->
@@ -67,35 +98,53 @@
             </p>
             
             <div class="bg-accent-600/10 border border-accent-600/20 rounded-lg p-6">
-              <h4 class="text-lg font-semibold text-accent-300 mb-3">¿Qué significa LGPL-2.1?</h4>
+              <h4 class="text-lg font-semibold text-accent-300 mb-3">¿Por qué LGPL-2.1 para librerías?</h4>
               <ul class="space-y-2 text-cubic-300">
                 <li class="flex items-start space-x-3">
                   <span class="text-accent-400 mt-1">•</span>
-                  <span><strong>Libre:</strong> Puedes usar, modificar y distribuir CubicMC libremente</span>
+                  <span><strong>Flexibilidad:</strong> Permite usar nuestras librerías en proyectos comerciales</span>
                 </li>
                 <li class="flex items-start space-x-3">
                   <span class="text-accent-400 mt-1">•</span>
-                  <span><strong>Menos restrictiva:</strong> A diferencia de GPL, permite enlazar con software propietario</span>
+                  <span><strong>Adopción:</strong> Facilita la integración en diferentes tipos de proyectos</span>
                 </li>
                 <li class="flex items-start space-x-3">
                   <span class="text-accent-400 mt-1">•</span>
-                  <span><strong>Comunidad:</strong> Fomenta la colaboración y el desarrollo abierto</span>
+                  <span><strong>Comunidad:</strong> Fomenta la colaboración manteniendo la libertad</span>
                 </li>
                 <li class="flex items-start space-x-3">
                   <span class="text-accent-400 mt-1">•</span>
-                  <span><strong>Transparencia:</strong> Todo el código fuente está disponible públicamente</span>
+                  <span><strong>Transparencia:</strong> El código fuente de las librerías permanece abierto</span>
                 </li>
               </ul>
             </div>
             
+            <!-- GPL-3.0 Section -->
+            <div class="bg-cubic-800/30 rounded-lg p-6 border-l-4 border-accent-500">
+              <h4 class="text-lg font-semibold text-white mb-3">GPL-3.0 para Proyectos Principales</h4>
+              <p class="text-cubic-300 mb-4">
+                Nuestros proyectos principales como CubicMC Launcher utilizan GPL-3.0 para asegurar que 
+                cualquier modificación o derivado permanezca bajo la misma licencia libre.
+              </p>
+              <div class="bg-accent-600/10 rounded-lg p-4">
+                <h5 class="font-semibold text-accent-300 mb-2">Características de GPL-3.0:</h5>
+                <ul class="space-y-1 text-sm text-cubic-300">
+                  <li>• Cualquier trabajo derivado debe ser GPL-3.0</li>
+                  <li>• Protección contra patentes de software</li>
+                  <li>• Compatibilidad con licencias Apache 2.0</li>
+                  <li>• Garantiza la libertad del software a largo plazo</li>
+                </ul>
+              </div>
+            </div>
+            
             <div class="bg-cubic-800/30 rounded-lg p-6">
-              <h4 class="text-lg font-semibold text-white mb-3">Tus derechos bajo LGPL-2.1:</h4>
+              <h4 class="text-lg font-semibold text-white mb-3">Tus derechos bajo LGPL-2.1 (Librerías):</h4>
               <ul class="space-y-2 text-cubic-300">
-                <li>✅ Usar CubicMC para cualquier propósito</li>
-                <li>✅ Modificar el código fuente</li>
+                <li>✅ Usar nuestras librerías en proyectos comerciales</li>
+                <li>✅ Modificar el código fuente de las librerías</li>
                 <li>✅ Distribuir copias modificadas</li>
                 <li>✅ Enlazar con software propietario</li>
-                <li>✅ Usar en proyectos comerciales</li>
+                <li>✅ Usar en aplicaciones cerradas</li>
               </ul>
             </div>
             
@@ -103,9 +152,10 @@
               <h4 class="text-lg font-semibold text-white mb-3">Tus responsabilidades:</h4>
               <ul class="space-y-2 text-cubic-300">
                 <li>📋 Mantener los avisos de copyright originales</li>
-                <li>📋 Incluir una copia de la licencia LGPL-2.1</li>
+                <li>📋 Incluir una copia de la licencia correspondiente</li>
                 <li>📋 Documentar los cambios realizados</li>
-                <li>📋 Hacer disponible el código fuente modificado</li>
+                <li>📋 Hacer disponible el código fuente modificado de las librerías</li>
+                <li>📋 Para proyectos GPL-3.0: cualquier derivado debe ser GPL-3.0</li>
               </ul>
             </div>
           </div>
@@ -124,6 +174,18 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                 </svg>
                 <span class="text-cubic-300 group-hover:text-white transition-colors duration-300">Licencia LGPL-2.1 completa</span>
+              </a>
+              
+              <a 
+                href="https://www.gnu.org/licenses/gpl-3.0.html" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="flex items-center space-x-3 p-4 bg-cubic-800/30 hover:bg-accent-600/10 rounded-lg transition-all duration-300 group"
+              >
+                <svg class="w-5 h-5 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+                <span class="text-cubic-300 group-hover:text-white transition-colors duration-300">Licencia GPL-3.0 completa</span>
               </a>
               
               <a 

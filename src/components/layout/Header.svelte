@@ -48,7 +48,7 @@
             <h1 class="text-2xl font-bold text-white leading-none">
               <span class="bg-gradient-to-r from-white to-cubic-200 bg-clip-text text-transparent">Cubic</span>
             </h1>
-            <span class="text-xs text-cubic-400 font-medium tracking-wider">MC</span>
+            <span class="text-xs text-cubic-400 font-medium tracking-wider">Launcher</span>
           </div>
         </div>
       </div>
