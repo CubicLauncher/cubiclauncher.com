@@ -1,4 +1,4 @@
-# CubicMC - Página Web Moderna
+# CubicLauncher - Página Web Moderna
 
 Una página web moderna y responsiva construida con **Svelte** y **Tailwind CSS**. Esta aplicación incluye un diseño elegante con múltiples secciones, navegación suave, formularios interactivos y una experiencia de usuario optimizada.
 
@@ -34,7 +34,7 @@ Una página web moderna y responsiva construida con **Svelte** y **Tailwind CSS*
 1. **Clona el repositorio**:
    ```bash
    git clone <tu-repositorio>
-   cd cubicmc.me
+   cd cubiclauncher.com
    ```
 
 2. **Instala las dependencias**:
@@ -61,7 +61,7 @@ Una página web moderna y responsiva construida con **Svelte** y **Tailwind CSS*
 ## 📁 Estructura del Proyecto
 
 ```
-cubicmc.me/
+cubiclauncher.com /
 ├── src/
 │   ├── components/
 │   │   ├── Header.svelte
