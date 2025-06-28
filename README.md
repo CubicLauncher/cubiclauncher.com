@@ -135,7 +135,7 @@ Para desplegar en producción:
 - 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia LGPL-2.1 license. Ver el archivo `LICENSE` para más detalles.
+Este proyecto está bajo la Licencia GPL-3.0 license license. Ver el archivo `LICENSE` para más detalles.
 
 ---
 
