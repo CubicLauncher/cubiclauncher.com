@@ -27,7 +27,7 @@
         <span>Volver</span>
       </button>
       
-      <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4">Licencias de CubicMC</h1>
+      <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4">Licencias de CubicLauncher</h1>
       <p class="text-xl text-cubic-300">
         LGPL-2.1 para librerías • GPL-3.0 para proyectos
       </p>
@@ -76,7 +76,7 @@
           
           <!-- Copyright Notice -->
           <div class="bg-cubic-800/30 rounded-lg p-6">
-            <h3 class="text-lg font-semibold text-white mb-3">Copyright (C) 2024 CubicMC</h3>
+            <h3 class="text-lg font-semibold text-white mb-3">Copyright (C) 2025 CubicLauncher</h3>
             <p class="text-cubic-300 leading-relaxed">
               This program is free software; you can redistribute it and/or modify it under the terms of the 
               GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 
@@ -123,7 +123,7 @@
             <div class="bg-cubic-800/30 rounded-lg p-6 border-l-4 border-accent-500">
               <h4 class="text-lg font-semibold text-white mb-3">GPL-3.0 para Proyectos Principales</h4>
               <p class="text-cubic-300 mb-4">
-                Nuestros proyectos principales como CubicMC Launcher utilizan GPL-3.0 para asegurar que 
+                Nuestros proyectos principales como CubicLauncher Launcher utilizan GPL-3.0 para asegurar que 
                 cualquier modificación o derivado permanezca bajo la misma licencia libre.
               </p>
               <div class="bg-accent-600/10 rounded-lg p-4">

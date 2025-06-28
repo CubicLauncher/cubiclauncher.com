@@ -3,6 +3,7 @@
   import Header from './components/layout/Header.svelte';
   import Hero from './components/sections/Hero.svelte';
   import Features from './components/sections/Features.svelte';
+  import Contributors from './components/sections/Contributors.svelte';
   import About from './components/sections/About.svelte';
   import Footer from './components/layout/Footer.svelte';
   import License from './pages/License.svelte';
@@ -43,6 +44,7 @@
   {#if currentRoute === 'home'}
     <Hero />
     <Features />
+    <Contributors />
     <About />
   {:else if currentRoute === 'license'}
     <License />
