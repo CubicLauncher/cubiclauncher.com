@@ -102,8 +102,6 @@ function handleSubOptionClick(subOption) {
   .bg-cubic-900 { background-color: #181825; }
   .border-cubic-800 { border-color: #232336; }
   .text-cubic-300 { color: #a1a1aa; }
-  .text-cubic-200 { color: #d1d5db; }
-  .text-accent-200 { color: #b5baff; }
   .hover\:bg-accent-700\/80:hover { background-color: #6d6dd6cc; }
   .bg-accent-700 { background-color: #6d6dd6; }
   .hover\:bg-accent-600:hover { background-color: #5a5ac7; }
