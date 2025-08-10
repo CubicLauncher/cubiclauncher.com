@@ -1,80 +1,78 @@
-# Estructura del Proyecto Cubic MC
+# CubicLauncher - Aplicación Svelte
 
-Este documento describe la organización y estructura de archivos del proyecto Cubic MC.
+## Implementación de Lazy Loading
 
-## 📁 Estructura de Directorios
+Esta aplicación ahora incluye un sistema completo de lazy loading para mejorar el rendimiento y la experiencia del usuario.
 
-```
-src/
-├── components/          # Componentes de Svelte
-│   ├── layout/         # Componentes de layout (Header, Footer, etc.)
-│   ├── ui/             # Componentes de interfaz reutilizables
-│   ├── sections/       # Componentes de secciones de página
-│   └── index.js        # Exportaciones centralizadas
-├── lib/                # Librerías y constantes
-│   └── constants.js    # Constantes de la aplicación
-├── utils/              # Funciones utilitarias
-│   └── scroll.js       # Utilidades de scroll
-├── types/              # Definiciones de tipos
-│   └── index.js        # Tipos y interfaces
-├── styles/             # Archivos de estilos
-│   └── app.css         # Estilos principales
-├── assets/             # Recursos estáticos
-│   ├── icons/          # Iconos SVG
-│   └── extra/          # Otros recursos
-├── App.svelte          # Componente principal
-└── main.js             # Punto de entrada
-```
+### Características
 
-## 🧩 Componentes
+- **Carga Dinámica de Componentes**: Los componentes se cargan solo cuando son necesarios
+- **Precarga Inteligente**: Los componentes críticos se precargan para mejor UX
+- **Caché de Componentes**: Los componentes cargados se almacenan en caché para evitar re-descargas
+- **Estrategia Configurable**: Fácil personalización de prioridades de carga y comportamiento de precarga
+- **Monitoreo de Rendimiento**: Seguimiento y optimización de rendimiento integrados
 
-### Layout Components (`components/layout/`)
-- **Header.svelte**: Navegación principal y logo
+### Cómo Funciona
 
-### UI Components (`components/ui/`)
-- **Button.svelte**: Botón reutilizable con variantes
-- **Card.svelte**: Contenedor de tarjeta con efectos
+1. **Componentes Críticos**: Header, Hero y Footer se cargan inmediatamente para renderizado inicial rápido
+2. **Componentes Lazy**: Otros componentes se cargan dinámicamente cuando cambian las rutas
+3. **Precarga**: Los componentes de alta prioridad se precargan después de la carga inicial de la página
+4. **Caché**: Una vez cargados, los componentes se almacenan en caché para acceso instantáneo
 
-### Section Components (`components/sections/`)
-- **Hero.svelte**: Sección principal de bienvenida
-- **Features.svelte**: Sección de características
-- **About.svelte**: Sección acerca de
+### Configuración
 
-## 📚 Librerías y Utilidades
-
-### Constants (`lib/constants.js`)
-- Configuración de la aplicación
-- Datos de navegación
-- Datos de características
-
-### Utils (`utils/scroll.js`)
-- Funciones de scroll suave
-- Detección de elementos en viewport
-- Listeners de scroll optimizados
-
-### Types (`types/index.js`)
-- Definiciones de tipos TypeScript/JSDoc
-- Constantes de tipos para componentes
-
-## 🎨 Estilos
-
-Los estilos están organizados en `styles/app.css` y utilizan Tailwind CSS para el diseño.
-
-## 📦 Importaciones
-
-Para facilitar las importaciones, se puede usar el archivo de índice:
+El comportamiento del lazy loading se puede personalizar en `src/lib/lazyConfig.js`:
 
 ```javascript
-// Importación individual
-import Header from './components/layout/Header.svelte';
-
-// O usando el índice (recomendado)
-import { Header, Button, Hero } from './components';
+export const lazyConfig = {
+  // Componentes que deben cargarse inmediatamente
+  critical: ['Header', 'Hero', 'Footer'],
+  
+  // Configuración de lazy loading para cada componente
+  lazy: {
+    Features: {
+      path: './components/sections/Features.svelte',
+      priority: 'high', // high, medium, low
+      preload: true // si debe precargarse
+    }
+  },
+  
+  // Estrategia de precarga
+  preload: {
+    onHover: true,
+    afterInitialLoad: true,
+    delay: 1000
+  }
+};
 ```
 
-## 🔧 Convenciones
+### Beneficios de Rendimiento
 
-1. **Nomenclatura**: PascalCase para componentes, camelCase para utilidades
-2. **Organización**: Componentes agrupados por función
-3. **Documentación**: JSDoc para funciones y tipos
-4. **Consistencia**: Estructura similar en todos los componentes 
+- **Carga Inicial Más Rápida**: Solo se cargan los componentes críticos inicialmente
+- **Bundle Más Pequeño**: Los componentes se dividen en chunks más pequeños
+- **Mejor Experiencia de Usuario**: Transiciones suaves con indicadores de carga
+- **Caché Optimizado**: Estrategia inteligente de almacenamiento en caché de componentes
+
+### Uso
+
+El sistema de lazy loading está automáticamente integrado en el sistema de enrutamiento. No se necesita código adicional en tus componentes.
+
+### Monitoreo
+
+Puedes monitorear el rendimiento del lazy loading usando las funciones de utilidad:
+
+```javascript
+import { getCacheStats } from './utils/lazyLoading.js';
+
+// Obtener estadísticas del caché
+const stats = getCacheStats();
+console.log('Componentes cargados:', stats.keys);
+console.log('Tamaño del caché:', stats.size);
+```
+
+### Mejores Prácticas
+
+1. **Priorizar Componentes**: Marca los componentes de uso frecuente como alta prioridad
+2. **Precargar Estratégicamente**: Solo precarga componentes que los usuarios probablemente necesiten
+3. **Monitorear Rendimiento**: Usa las herramientas de monitoreo integradas para optimizar la carga
+4. **Probar Flujos de Usuario**: Asegúrate de que los recorridos críticos del usuario tengan rendimiento de carga óptimo 
