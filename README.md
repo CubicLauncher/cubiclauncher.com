@@ -1,35 +1,35 @@
-# CubicLauncher - Página Web Moderna
+# CubicLauncher - Web oficial
 
-Una página web moderna y responsiva construida con **Svelte** y **Tailwind CSS**. Esta aplicación incluye un diseño elegante con múltiples secciones, navegación suave, formularios interactivos y una experiencia de usuario optimizada.
+Una web moderna y responsiva construida con **Svelte** y **Tailwind CSS**. Esta aplicación incluye un diseño elegante con múltiples secciones, navegación suave, formularios interactivos y una experiencia de usuario optimizada.
 
-## 🚀 Características
+## Características
 
 - **Framework Moderno**: Construido con Svelte para un rendimiento excepcional
-- **Diseño Responsivo**: Optimizado para todos los dispositivos
-- **Tailwind CSS**: Estilos modernos y personalizables
-- **Navegación Suave**: Scroll automático entre secciones
-- **Formularios Interactivos**: Con validación y feedback visual
-- **Animaciones**: Efectos visuales atractivos
+- **Diseño Responsivo**: Optimizado para todos los dispositivos y tamaños de pantalla
+- **Tailwind CSS**: Framework de estilos moderno y personalizable
+- **Navegación Suave**: Desplazamiento automático entre secciones
+- **Formularios Interactivos**: Con validación y retroalimentación visual
+- **Animaciones**: Efectos visuales atractivos y transiciones
 - **SEO Optimizado**: Meta tags y estructura semántica
 
-## 📋 Secciones Incluidas
+## Secciones Incluidas
 
-1. **Header**: Navegación fija con menú responsive
-2. **Hero**: Sección principal con llamadas a la acción
+1. **Header**: Navegación fija con menú responsivo
+2. **Hero**: Sección principal con elementos de llamada a la acción
 3. **Features**: Características del producto con iconos
 4. **About**: Información de la empresa y equipo
 5. **Contact**: Formulario de contacto e información
-6. **Footer**: Enlaces, redes sociales y newsletter
+6. **Footer**: Enlaces, redes sociales y suscripción al boletín
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **Svelte 4**: Framework de JavaScript moderno
 - **Vite**: Herramienta de construcción rápida
 - **Tailwind CSS**: Framework de CSS utility-first
 - **PostCSS**: Procesador de CSS
-- **Autoprefixer**: Prefijos automáticos para CSS
+- **Autoprefixer**: Prefijos automáticos de proveedores para CSS
 
-## 📦 Instalación
+## Instalación
 
 1. **Clona el repositorio**:
    ```bash
@@ -52,16 +52,16 @@ Una página web moderna y responsiva construida con **Svelte** y **Tailwind CSS*
    http://localhost:3000
    ```
 
-## 🏗️ Scripts Disponibles
+## Scripts Disponibles
 
 - `npm run dev` - Inicia el servidor de desarrollo
 - `npm run build` - Construye la aplicación para producción
-- `npm run preview` - Previsualiza la build de producción
+- `npm run preview` - Previsualiza la construcción de producción
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
-cubiclauncher.com /
+cubiclauncher.com/
 ├── src/
 │   ├── components/
 │   │   ├── Header.svelte
@@ -82,7 +82,7 @@ cubiclauncher.com /
 └── README.md
 ```
 
-## 🎨 Personalización
+## Personalización
 
 ### Colores
 Los colores principales se pueden personalizar en `tailwind.config.js`:
@@ -92,7 +92,7 @@ colors: {
   primary: {
     50: '#eff6ff',
     100: '#dbeafe',
-    // ... más tonos
+    // ... tonos adicionales
     900: '#1e3a8a',
   }
 }
@@ -102,16 +102,16 @@ colors: {
 Cada sección está modularizada en componentes Svelte independientes en `src/components/`.
 
 ### Estilos
-Los estilos globales y componentes personalizados están en `src/app.css`.
+Los estilos globales y componentes personalizados se encuentran en `src/app.css`.
 
-## 📱 Responsive Design
+## Diseño Responsivo
 
 La aplicación está completamente optimizada para:
 - **Móviles**: 320px - 768px
 - **Tablets**: 768px - 1024px
-- **Desktop**: 1024px+
+- **Escritorio**: 1024px+
 
-## 🔧 Configuración de Producción
+## Configuración de Producción
 
 Para desplegar en producción:
 
@@ -124,19 +124,19 @@ Para desplegar en producción:
 
 3. **Sube el contenido de `dist/` a tu servidor web**
 
-## 🌟 Características Destacadas
+## Características Destacadas
 
-- **Navegación Suave**: Scroll automático entre secciones
-- **Formulario Interactivo**: Con simulación de envío y feedback
-- **Animaciones CSS**: Efectos de hover y transiciones
+- **Navegación Suave**: Desplazamiento automático entre secciones
+- **Formularios Interactivos**: Con simulación de envío y retroalimentación
+- **Animaciones CSS**: Efectos de hover y transiciones suaves
 - **Iconos SVG**: Integrados directamente en los componentes
 - **Tipografía**: Fuente Inter de Google Fonts
 - **Gradientes**: Efectos visuales modernos
-- 
-## 📄 Licencia
 
-Este proyecto está bajo la Licencia GPL-3.0 license license. Ver el archivo `LICENSE` para más detalles.
+## Licencia
+
+Este proyecto está bajo la Licencia GPL-3.0. Consulta el archivo `LICENSE` para más detalles.
 
 ---
 
-**Desarrollado con ❤️ usando Svelte y Tailwind CSS** 
+**Desarrollado utilizando Svelte y Tailwind CSS** 
