@@ -2,6 +2,9 @@
 
 Una web moderna y responsiva construida con **Svelte** y **Tailwind CSS**. Esta aplicación incluye un diseño elegante con múltiples secciones, navegación suave, formularios interactivos y una experiencia de usuario optimizada.
 
+<img width="1279" height="718" alt="image" src="https://github.com/user-attachments/assets/a75c1839-234a-45b5-bd57-135b788b0802" />
+
+
 ## Características
 
 - **Framework Moderno**: Construido con Svelte para un rendimiento excepcional
@@ -140,3 +143,4 @@ Este proyecto está bajo la Licencia GPL-3.0. Consulta el archivo `LICENSE` para
 ---
 
 **Desarrollado utilizando Svelte y Tailwind CSS** 
+
