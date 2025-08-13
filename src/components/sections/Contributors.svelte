@@ -88,7 +88,7 @@
         
         <!-- Call to Action -->
         <div class="pt-6">
-          <a href="https://github.com/cubicmc/cubiclauncher" target="_blank" rel="noopener noreferrer" 
+          <a href="https://github.com/CubicLauncher/CubicLauncher" target="_blank" rel="noopener noreferrer" 
              class="inline-flex items-center space-x-3 bg-gradient-to-r from-accent-600 to-accent-500 hover:from-accent-500 hover:to-accent-400 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-accent-500/25">
             <svelte:component this={Github} class="w-5 h-5" />
             <span>Contribuir en GitHub</span>

@@ -18,8 +18,8 @@
       icon: Monitor
     },
     {
-      title: "Personalizable",
-      description: "Adapta CubicLauncher a tu estilo. Temas, colores y configuraciones personalizables para una experiencia única.",
+      title: "Interfaz bonita",
+      description: "Disfruta de una interfaz moderna y atractiva. Diseño elegante con animaciones suaves y una experiencia visual excepcional.",
       icon: Palette
     },
     {
