@@ -1,16 +1,313 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/icons/CubicLogo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CubicLauncher -  Launcher</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CubicLauncher - Home</title>
+    <meta name="description" content="CubicLauncher - Launcher de minecraft open source">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
-</html> 
+    <link rel="stylesheet" href="indexSctructure/css/style.css">
+</head>
+<body class="min-h-screen bg-cubic-dark">
+    <!-- Navigation -->
+    <div class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-auto">
+        <div class="px-4">
+            <div class="flex items-center gap-3">
+                <!-- Main Navigation -->
+                <nav class="bg-gradient-to-br from-white/5 to-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl shadow-cubic-primary/5 px-4 py-2 before:absolute before:inset-0 before:bg-[radial-gradient(100%_100%_at_0%_0%,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.01)_100%)] before:rounded-xl before:-z-10 relative overflow-hidden">
+                    <div class="flex items-center space-x-1">
+                        <a href="#about" class="nav-link hover:bg-cubic-border/30 px-3 py-2 text-sm rounded-lg transition-all duration-300 flex items-center whitespace-nowrap">
+                            <i class="fas fa-info-circle mr-1.5 text-cubic-primary"></i> Acerca
+                        </a>
+                        <a href="#features" class="nav-link hover:bg-cubic-border/30 px-3 py-2 text-sm rounded-lg transition-all duration-300 flex items-center whitespace-nowrap">
+                            <i class="fas fa-book mr-1.5 text-cubic-primary"></i> Docs
+                        </a>
+                        <a href="#features" class="nav-link hover:bg-cubic-border/30 px-3 py-2 text-sm rounded-lg transition-all duration-300 flex items-center whitespace-nowrap">
+                            <i class="fab fa-discord mr-1.5 text-cubic-primary"></i> Comunidad
+                        </a>
+                    </div>
+                </nav>
+                
+                <!-- Featured Navigation -->
+                <nav class="bg-gradient-to-br from-white/5 to-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl shadow-cubic-primary/5 px-3 py-2 before:absolute before:inset-0 before:bg-[radial-gradient(100%_100%_at_100%_0%,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.01)_100%)] before:rounded-xl before:-z-10 relative overflow-hidden">
+                    <div class="flex items-center space-x-2">
+                        <a href="#download" class="nav-link bg-cubic-primary/5 hover:bg-cubic-primary/10 border border-cubic-primary/20 text-cubic-primary px-3 py-2 text-sm rounded-lg transition-all duration-300 flex items-center font-medium whitespace-nowrap">
+                            <i class="fas fa-download mr-1.5"></i> Descargar
+                        </a>
+                        <a href="#donate" class="nav-link bg-cubic-primary/10 hover:bg-cubic-primary/20 border border-cubic-primary/30 text-cubic-primary px-3 py-2 text-sm rounded-lg transition-all duration-300 flex items-center font-medium whitespace-nowrap">
+                            <i class="fas fa-heart mr-1.5"></i> Donar
+                        </a>
+                    </div>
+                </nav>
+                
+                <button id="mobile-menu-button" class="md:hidden text-xl text-cubic-text-secondary hover:bg-cubic-border/30 p-1.5 rounded-lg transition-all flex items-center">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="h-20"></div>
+
+    <!-- Hero Section -->
+    <section class="py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 max-w-4xl mx-auto">
+                Launcher de minecraft open source para jugadores <span class="gradient-text">NO PREMIUM</span>
+            </h1>
+            <p class="text-xl text-cubic-text-secondary mb-10 max-w-2xl mx-auto">
+                CubicLauncher es una solución de código abierto, ligera y personalizable para poder jugar minecraft sin necesidad de tener una cuenta premium.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#download" class="btn-primary">
+                    Descargar ahora
+                </a>
+                <a href="#features" class="btn-secondary">
+                    Ver características
+                </a>
+            </div>
+
+            
+            
+            <div class="mt-16 max-w-5xl mx-auto">
+                <a href="https://github.com/yourusername/yourrepo" target="_blank" class="inline-flex items-center gap-2 bg-cubic-darker/50 hover:bg-cubic-darker/70 text-cubic-text text-sm px-4 py-2 rounded-t-lg border border-cubic-border border-b-0 transition-colors duration-200">
+                    <i class="fab fa-github text-base"></i>
+                    <span>Código Abierto</span>
+                </a>
+                <div class="rounded-xl overflow-hidden border border-cubic-border -mt-px">
+                <div class="bg-cubic-darker p-2 flex items-center justify-between">
+                    <div class="flex space-x-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                    </div>
+                    <div class="text-sm text-cubic-text-secondary">CubicLauncher v1.0.0</div>
+                </div>
+                <div class="bg-gradient-to-br from-cubic-darker to-black p-1">
+                    <img src="https://via.placeholder.com/1200x700/1a1a1a/333333?text=CubicLauncher+Demo" alt="CubicLauncher Demo" class="w-full h-auto rounded-b-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-cubic-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Características principales</h2>
+                <p class="text-lg text-cubic-text-secondary max-w-2xl mx-auto">Caracteristicas que destacan a CubicLauncher del resto de los launchers</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="w-12 h-12 bg-cubic-accent/10 rounded-lg flex items-center justify-center mb-4 text-cubic-primary">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Rendimiento óptimo</h3>
+                    <p class="text-cubic-text-secondary">Al estar hecho en Java, esta diseñado para ser ligero y rápido, sin consumir recursos innecesarios mientras juegas.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="w-12 h-12 bg-cubic-accent/10 rounded-lg flex items-center justify-center mb-4 text-cubic-primary">
+                        <i class="fas fa-paint-brush text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Personalizable</h3>
+                    <p class="text-cubic-text-secondary">CubicLauncher permite la personalizacion como cambio de idiomas, tambien te facilitamos la posibilidad de personalizar la hoja de estilos del launcher.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="w-12 h-12 bg-cubic-accent/10 rounded-lg flex items-center justify-center mb-4 text-cubic-primary">
+                        <i class="fas fa-code-branch text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Código abierto</h3>
+                    <p class="text-cubic-text-secondary">Al ser de codigo abierto puedes ver el codigo fuente del launcher y contribuir a su desarrollo.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="w-12 h-12 bg-cubic-accent/10 rounded-lg flex items-center justify-center mb-4 text-cubic-primary">
+                        <i class="fas fa-user text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Facilidad de uso</h3>
+                    <p class="text-cubic-text-secondary">CubicLauncher es un launcher muy facil de usar, con una interfaz simple y intuitiva.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="w-12 h-12 bg-cubic-accent/10 rounded-lg flex items-center justify-center mb-4 text-cubic-primary">
+                        <i class="fas fa-laptop text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Multisistema</h3>
+                    <p class="text-cubic-text-secondary">CubicLauncher al estar creado en java es multisistema, es decir, funciona en varios sistemas operativos.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="w-12 h-12 bg-cubic-accent/10 rounded-lg flex items-center justify-center mb-4 text-cubic-primary">
+                        <i class="fas fa-donate text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Libre de publicidad</h3>
+                    <p class="text-cubic-text-secondary">CubicLauncher es un proyecto de codigo abierto para comunidad de mincraft, por lo que no cuenta con publicidad y la unica forma de monetizar es a traves de donaciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-20 bg-cubic-darker border-t border-cubic-border">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Descarga CubicLauncher</h2>
+                <p class="text-lg text-cubic-text-secondary mb-10">Disponible para todas las plataformas principales. Únete a nuestra comunidad de jugadores hoy mismo.</p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mt-12">
+                    <div class="bg-cubic-darker p-6 rounded-xl border border-cubic-border hover:border-cubic-primary transition-colors">
+                        <i class="fab fa-windows text-5xl text-blue-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Windows</h3>
+                        <p class="text-cubic-text-secondary text-sm mb-4">Windows 10/11 (64-bit)</p>
+                        <a href="#" class="btn-primary inline-block w-full">
+                            Descargar para Windows
+                        </a>
+                    </div>
+                    
+                    <div class="bg-cubic-darker p-6 rounded-xl border border-cubic-border hover:border-cubic-primary transition-colors">
+                        <i class="fab fa-apple text-5xl text-gray-300 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">macOS</h3>
+                        <p class="text-cubic-text-secondary text-sm mb-4">macOS 10.14 o superior</p>
+                        <a href="#" class="btn-primary inline-block w-full">
+                            Descargar para macOS
+                        </a>
+                    </div>
+                    
+                    <div class="bg-cubic-darker p-6 rounded-xl border border-cubic-border hover:border-cubic-primary transition-colors">
+                        <i class="fab fa-linux text-5xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Linux</h3>
+                        <p class="text-cubic-text-secondary text-sm mb-4">.deb, .rpm y AppImage</p>
+                        <a href="#" class="btn-primary inline-block w-full">
+                            Descargar para Linux
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-cubic-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Acerca de CubicLauncher</h2>
+                    <p class="text-lg text-cubic-text-secondary max-w-2xl mx-auto">Creado por el equipo de CubicLauncher, un proyecto de código abierto para la comunidad de Minecraft.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">Nuestra misión</h3>
+                        <p class="text-cubic-text-secondary mb-6">
+                            La misión de CubicLauncher es brindar una solución libre y de alta calidad para aquellos jugadores que desean acceder a Minecraft sin una cuenta premium.
+                             Nuestro enfoque está en la estabilidad, el rendimiento y la accesibilidad, buscando siempre mejorar la experiencia del usuario sin comprometer la apertura y transparencia del código.
+                        </p>
+                        <p class="text-cubic-text-secondary mb-8">
+                           CubicLauncher es una alternativa moderna a los launchers tradicionales de Minecraft. Está diseñado para ser ligero, rápido y accesible, permitiendo a cualquier usuario ejecutar el juego sin comprometer el rendimiento, incluso en equipos con recursos limitados.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/CubicLauncher" target="_blank" class="btn-secondary inline-flex items-center">
+                                <i class="fab fa-github mr-2"></i> Ver en GitHub
+                            </a>
+                            <a href="#" class="text-cubic-text-secondary hover:text-cubic-text-primary flex items-center">
+                                Documentación <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-cubic-darker rounded-xl overflow-hidden border border-cubic-border">
+                        <div class="p-4 bg-cubic-darker border-b border-cubic-border flex items-center justify-between">
+                            <div class="flex space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            </div>
+                            <span class="text-sm text-cubic-text-secondary">terminal</span>
+                            <div class="w-6"></div>
+                        </div>
+                        <div class="p-6 font-mono text-sm bg-black/30">
+                            <div class="mb-2"><span class="text-green-400">$</span> git clone https://github.com/CubicLauncher/CubicLauncher.git</div>
+                            <div class="mb-2"><span class="text-green-400">$</span> cd CubicLauncher</div>
+                            <div class="mb-2"><span class="text-green-400">$</span> ./gradlew build</div>
+                            <div class="mb-2"><span class="text-green-400">$</span> ./gradlew run</div>
+                            <div class="text-cubic-text-secondary"># ¡Listo! El launcher se está ejecutando localmente</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-cubic-darker border-t border-cubic-border py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="overflow-hidden rounded-lg w-10 h-10">
+                            <img src="https://avatars.githubusercontent.com/u/186650404" alt="CubicLauncher Logo" class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+                        </div>
+                        <span class="text-xl font-bold">Cubic<span class="gradient-text">Launcher</span></span>
+                    </div>
+                    <p class="text-cubic-text-secondary text-sm">
+                        Alternativa moderna a los launchers tradicionales de Minecraft. Está diseñado para ser ligero, rápido y accesible, permitiendo a cualquier usuario ejecutar el juego sin comprometer el rendimiento, incluso en equipos con recursos limitados.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-cubic-text-primary font-semibold mb-4">Enlaces rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm">Características</a></li>
+                        <li><a href="#download" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm">Descargar</a></li>
+                        <li><a href="#about" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm">Acerca de</a></li>
+                        <li><a href="#" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm">Documentación</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-cubic-text-primary font-semibold mb-4">Comunidad</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/CubicLauncher" target="_blank" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm flex items-center"><i class="fab fa-github mr-2"></i> GitHub</a></li>
+                        <li><a href="#" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm flex items-center"><i class="fab fa-discord mr-2"></i> Discord</a></li>
+                        <li><a href="#" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm flex items-center"><i class="fab fa-twitter mr-2"></i> Twitter</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-cubic-text-primary font-semibold mb-4">Donaciones</h4>
+                    <p class="text-cubic-text-secondary text-sm mb-4">Si quieres apoyar al proyecto, puedes hacer una donación.</p>
+                    <div class="flex">
+                        <button class="bg-cubic-primary text-cubic-dark font-semibold px-4 rounded-r-lg hover:bg-opacity-90 transition-colors">
+                            Donar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-cubic-border pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-cubic-text-secondary text-sm"> © 2025 CubicLauncher. Código abierto bajo licencia <a href="https://github.com/CubicLauncher/CubicLauncher/blob/main/LICENSE" target="_blank" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm">GPLv3</a>.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm">Términos</a>
+                    <a href="#" class="text-cubic-text-secondary hover:text-cubic-text-primary text-sm">Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-cubic-darker border border-cubic-border w-12 h-12 rounded-full flex items-center justify-center text-cubic-text-secondary hover:text-cubic-text-primary transition-colors hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="indexSctructure/js/tailwindConfig.js"></script>
+</body>
+</html>
