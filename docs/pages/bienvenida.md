@@ -1,35 +1,19 @@
-# Bienvenido a la Documentación
+# Documentación de CubicLauncher
 
-¡Gracias por usar nuestro sistema de documentación! Este es un ejemplo de cómo se verá el contenido cargado desde un archivo Markdown.
+Si no sabes por donde empezar, ve a la sección de **guía** para comenzar.
 
-## Características principales
+**CubicLauncher** es un launcher de **Minecraft** de código abierto, desarrollado con el objetivo de proporcionar una experiencia de juego optimizada, especialmente para usuarios que no cuentan con una cuenta premium. Nos enfocamos en ofrecer un rendimiento sólido, compatibilidad con diversas versiones del juego y una interfaz clara y eficiente.
 
-- **Navegación fluida** entre páginas
-- **Soporte completo para Markdown**
-- **Diseño responsive** que se adapta a cualquier dispositivo
-- **Sintaxis de código** con resaltado de sintaxis
+### Licencias
 
-## Ejemplo de código
+Todos los proyectos de esta organización están distribuidos bajo licencias de software libre.
 
-```javascript
-// Este es un ejemplo de código JavaScript
-function saludar(nombre) {
-  return `¡Hola, ${nombre}!`;
-}
+- Las **librerías** se distribuyen bajo la **Licencia LGPL-2.1**, lo que permite su libre uso, modificación y distribución, incluso en software propietario, siempre que se respeten los términos definidos en dicha licencia.
 
-console.log(saludar('Usuario'));
-```
+- El resto de los proyectos están licenciados bajo la **GPL-3.0**, que garantiza las mismas libertades (uso, modificación y distribución), pero exige que cualquier trabajo derivado también se distribuya bajo la misma licencia GPL-3.0.
 
-## Notas importantes
+## Comunidad
 
-[!TIP]
-Este es un consejo útil.
+CubicLauncher es una comunidad abierta. Si deseas participar, compartir ideas, reportar errores o simplemente estar al tanto del desarrollo, puedes unirte a nuestros canales oficiales:
 
-[!WARNING]
-¡Atención con esto!
-
-## Enlaces útiles
-
-- [Documentación oficial](https://ejemplo.com)
-- [Foro de la comunidad](https://foro.ejemplo.com)
-- [Soporte técnico](mailto:soporte@ejemplo.com)
+<a href="https://discord.gg/RxQMDvVYkt" class="btn btn-primary btn-sm">Discord</a>  <a href="https://www.reddit.com/r/CubicLauncher/" class="btn btn-primary btn-sm">Subreddit oficial</a>

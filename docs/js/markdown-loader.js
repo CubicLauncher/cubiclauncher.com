@@ -4,7 +4,8 @@ const config = {
     pagesPath: 'pages/',
     fileExtension: '.md',
     navigation: [
-        {
+        {   
+            title: 'Resumen',
             items: [
                 { title: 'Bienvenida', file: 'bienvenida' },
                 { title: 'Empezando', file: 'empezando' },
@@ -82,9 +83,16 @@ function renderNavigation() {
     let navHTML = '';
     
     config.navigation.forEach(section => {
+        const sectionId = section.title.toLowerCase().replace(/\s+/g, '-');
         navHTML += `
-            <div class="nav-section">
-                <ul>
+            <div class="nav-section" id="${sectionId}-section">
+                ${section.title ? `
+                    <div class="nav-section-title" data-section="${sectionId}">
+                        <span class="caret">›</span>
+                        ${section.title}
+                    </div>
+                ` : ''}
+                <ul class="nav-section-items">
                     ${section.items.map(item => 
                         `<li><a href="#${item.file}" data-page="${item.file}">${item.title}</a></li>`
                     ).join('')}
@@ -94,6 +102,21 @@ function renderNavigation() {
     });
 
     navContainer.innerHTML = navHTML;
+
+    // Add click event listeners to section titles for expand/collapse
+    document.querySelectorAll('.nav-section-title').forEach(title => {
+        title.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const sectionId = title.getAttribute('data-section');
+            const section = document.getElementById(`${sectionId}-section`);
+            const items = section.querySelector('.nav-section-items');
+            const caret = section.querySelector('.caret');
+            
+            section.classList.toggle('collapsed');
+            items.style.maxHeight = section.classList.contains('collapsed') ? '0' : `${items.scrollHeight}px`;
+            caret.style.transform = section.classList.contains('collapsed') ? 'rotate(0deg)' : 'rotate(90deg)';
+        });
+    });
 
     // Add click event listeners to navigation links
     document.querySelectorAll('.sidebar-nav a').forEach(link => {
@@ -109,6 +132,16 @@ function renderNavigation() {
             }
         });
     });
+
+    // Initialize sections as expanded by default
+    setTimeout(() => {
+        document.querySelectorAll('.nav-section').forEach(section => {
+            const items = section.querySelector('.nav-section-items');
+            const caret = section.querySelector('.caret');
+            items.style.maxHeight = items.scrollHeight + 'px';
+            caret.style.transform = 'rotate(90deg)';
+        });
+    }, 100);
 }
 
 // Load page based on URL hash
@@ -116,6 +149,32 @@ function loadPageFromURL() {
     const hash = window.location.hash.substring(1);
     const page = hash || config.defaultPage;
     loadPage(page);
+}
+
+// Add edit page link
+function addEditPageLink(pageName) {
+    const editLink = document.createElement('a');
+    editLink.href = `https://github.com/CubicLauncher/cubiclauncher.com/edit/main/docs/pages/${pageName}.md`;
+    editLink.className = 'edit-page-link';
+    editLink.target = '_blank';
+    editLink.rel = 'noopener noreferrer';
+    editLink.innerHTML = '\n            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>\n                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>\n            </svg>\n            Editar esta página\n        ';
+    
+    // Create container if it doesn't exist
+    let container = document.querySelector('.content-header');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'content-header';
+        const contentDiv = document.getElementById('markdownContent');
+        contentDiv.parentNode.insertBefore(container, contentDiv);
+    }
+    
+    // Clear any existing edit link and add the new one
+    const existingLink = container.querySelector('.edit-page-link');
+    if (existingLink) {
+        container.removeChild(existingLink);
+    }
+    container.appendChild(editLink);
 }
 
 // Load and render a Markdown page
@@ -127,6 +186,9 @@ async function loadPage(pageName) {
     document.querySelectorAll('.sidebar-nav a').forEach(link => {
         link.classList.toggle('active', link.getAttribute('data-page') === pageName);
     });
+    
+    // Add edit page link
+    addEditPageLink(pageName);
 
     // Update URL without page reload
     if (window.location.hash.substring(1) !== pageName) {
