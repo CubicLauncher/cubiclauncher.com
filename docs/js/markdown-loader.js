@@ -1,14 +1,14 @@
 // Configuration
 const config = {
-    defaultPage: 'bienvenida',
+    defaultPage: 'welcome',
     pagesPath: 'pages/',
     fileExtension: '.md',
     navigation: [
         {   
             title: 'Resumen',
             items: [
-                { title: 'Bienvenida', file: 'bienvenida' },
-                { title: 'Empezando', file: 'empezando' },
+                { title: 'Bienvenida', file: 'welcome' },
+                { title: 'Soporte', file: 'support' },
                 { title: 'Instalación', file: 'instalacion' }
             ]
         },
