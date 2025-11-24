@@ -22,13 +22,11 @@ console.log(saludar('Usuario'));
 
 ## Notas importantes
 
-::: tip
-Este es un consejo útil que puede ayudar a los usuarios.
-:::
+[!TIP]
+Este es un consejo útil.
 
-::: warning
-¡Atención! Esto es una advertencia importante.
-:::
+[!WARNING]
+¡Atención con esto!
 
 ## Enlaces útiles
 

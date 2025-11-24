@@ -1,217 +1,202 @@
-// Lista de páginas disponibles
-let availablePages = [];
+// Configuration
+const config = {
+    defaultPage: 'bienvenida',
+    pagesPath: 'pages/',
+    fileExtension: '.md',
+    navigation: [
+        {
+            items: [
+                { title: 'Bienvenida', file: 'bienvenida' },
+                { title: 'Empezando', file: 'empezando' },
+                { title: 'Instalación', file: 'instalacion' }
+            ]
+        },
+        {
+            title: 'Guías',
+            items: [
+                { title: 'Configuración', file: 'configuracion' },
+                { title: 'Personalización', file: 'personalizacion' },
+                { title: 'Temas', file: 'temas' }
+            ]
+        },
+        {
+            title: 'Avanzado',
+            items: [
+                { title: 'API', file: 'api' },
+                { title: 'Plugins', file: 'plugins' },
+                { title: 'Contribuir', file: 'contribuir' }
+            ]
+        }
+    ]
+};
 
-// Verificar si marked está disponible
-function isMarkedReady() {
-    return typeof window.markedParse === 'function' && typeof marked !== 'undefined';
-}
-
-// Función para esperar a que marked esté listo
-function waitForMarked() {
-    return new Promise((resolve) => {
-        if (isMarkedReady()) {
-            resolve();
-            return;
-        }
-        
-        const checkInterval = setInterval(() => {
-            if (isMarkedReady()) {
-                clearInterval(checkInterval);
-                resolve();
-            }
-        }, 100);
-        
-        // Timeout after 5 seconds
-        setTimeout(() => {
-            clearInterval(checkInterval);
-            console.error('Timed out waiting for marked.js to load');
-            resolve(); // Resolve anyway to prevent blocking
-        }, 5000);
-    });
-}
-
-// Función para cargar la lista de páginas disponibles
-async function loadAvailablePages() {
-    try {
-        const response = await fetch('pages/');
-        if (!response.ok) {
-            console.error('No se pudo cargar el directorio de páginas, usando página por defecto');
-            availablePages = ['bienvenida.md'];
-            return;
-        }
-        
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const links = Array.from(doc.querySelectorAll('a'));
-        
-        availablePages = links
-            .map(link => link.getAttribute('href'))
-            .filter(href => href && href.endsWith('.md'))
-            .map(href => {
-                // Obtener solo el nombre del archivo sin la ruta
-                const filename = href.split('/').pop().replace(/\.md$/, '');
-                return filename;
-            })
-            .filter(Boolean); // Remove any empty strings
-            
-        if (availablePages.length === 0) {
-            console.warn('No se encontraron archivos .md en el directorio pages/');
-            availablePages = ['bienvenida']; // Página por defecto
-        }
-        
-        updateSidebar();
-        
-        // Cargar la primera página disponible si no hay hash
-        if (!window.location.hash && availablePages.length > 0) {
-            const defaultPage = availablePages[0];
-            console.log(`Cargando página por defecto: ${defaultPage}`);
-            loadMarkdownContent(defaultPage);
-        }
-    } catch (error) {
-        console.error('Error al cargar la lista de páginas:', error);
-        availablePages = ['bienvenida']; // Página por defecto
-        updateSidebar();
+// Initialize the documentation
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
     }
-}
 
-// Función para actualizar la barra lateral
-function updateSidebar() {
-    const sidebar = document.getElementById('sidebar-nav');
-    if (!sidebar) return;
-    
-    // Agrupar páginas por categoría
-    const pagesByCategory = availablePages.reduce((acc, page) => {
-        const category = page.split('-')[0] || 'general';
-        if (!acc[category]) {
-            acc[category] = [];
+    // Close menu when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && 
+            !sidebar.contains(e.target) && 
+            e.target !== menuToggle) {
+            sidebar.classList.remove('active');
         }
-        acc[category].push(page);
-        return acc;
-    }, {});
+    });
+
+    // Initialize Marked.js with syntax highlighting
+    marked.setOptions({
+        highlight: function(code, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                return hljs.highlight(code, { language: lang }).value;
+            }
+            return hljs.highlightAuto(code).value;
+        },
+        langPrefix: 'hljs language-',
+        gfm: true,
+        breaks: true
+    });
+
+    // Render navigation
+    renderNavigation();
+
+    // Load the initial page
+    loadPageFromURL();
+
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', loadPageFromURL);
+});
+
+// Render the navigation menu
+function renderNavigation() {
+    const navContainer = document.getElementById('sidebarNav');
+    if (!navContainer) return;
+
+    let navHTML = '';
     
-    // Generar HTML de la barra lateral
-    let sidebarHTML = '';
-    
-    Object.entries(pagesByCategory).forEach(([category, pages]) => {
-        const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
-        
-        sidebarHTML += `
-            <div class="mb-6">
-                <ul class="space-y-1">
-                    ${pages.map(page => `
-                        <li>
-                            <a href="#${page}" class="nav-link block px-6 py-2 text-cubic-text-secondary hover:bg-cubic-accent hover:text-cubic-primary transition-colors duration-200">
-                                ${page.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                            </a>
-                        </li>
-                    `).join('')}
+    config.navigation.forEach(section => {
+        navHTML += `
+            <div class="nav-section">
+                <ul>
+                    ${section.items.map(item => 
+                        `<li><a href="#${item.file}" data-page="${item.file}">${item.title}</a></li>`
+                    ).join('')}
                 </ul>
             </div>
         `;
     });
-    
-    sidebar.innerHTML = sidebarHTML;
-    
-    // Agregar manejadores de eventos a los enlaces
-    document.querySelectorAll('.nav-link').forEach(link => {
+
+    navContainer.innerHTML = navHTML;
+
+    // Add click event listeners to navigation links
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const page = link.getAttribute('href').substring(1);
-            loadMarkdownContent(page);
+            const page = link.getAttribute('data-page');
+            if (page) {
+                loadPage(page);
+                // Close mobile menu after selection
+                if (window.innerWidth <= 768) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            }
         });
     });
 }
 
-// Función para cargar el contenido Markdown
-async function loadMarkdownContent(page) {
-  try {
-    // Esperar a que marked esté listo
-    await waitForMarked();
-    
-    const response = await fetch(`pages/${page}.md`);
-    if (!response.ok) {
-      throw new Error('Página no encontrada');
-    }
-    
-    const markdown = await response.text();
-    
-    // Verificar nuevamente antes de parsear
-    if (!isMarkedReady()) {
-      console.error('markedParse no está disponible después de esperar');
-      document.getElementById('content').innerHTML = `<div class="p-4 bg-red-100 text-red-800 rounded">
-        <p>Error: No se pudo cargar el procesador de Markdown.</p>
-        <pre class="mt-2 p-2 bg-white rounded overflow-auto">${markdown}</pre>
-      </div>`;
-      return;
-    }
-    
-    try {
-      const html = window.markedParse(markdown);
-      document.getElementById('content').innerHTML = html;
-    } catch (parseError) {
-      console.error('Error al procesar el markdown:', parseError);
-      document.getElementById('content').innerHTML = `<div class="p-4 bg-yellow-100 text-yellow-800 rounded">
-        <p>Error al procesar el contenido Markdown:</p>
-        <pre class="mt-2 p-2 bg-white rounded overflow-auto">${parseError.message}</pre>
-        <details class="mt-2">
-          <summary class="cursor-pointer font-medium">Ver contenido original</summary>
-          <pre class="mt-2 p-2 bg-gray-100 rounded overflow-auto">${markdown}</pre>
-        </details>
-      </div>`;
-    }
-    
-    // Actualizar el estado activo del menú
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.classList.remove('bg-cubic-accent', 'text-cubic-primary');
-      link.classList.add('text-cubic-text-secondary');
-      if (link.getAttribute('href') === `#${page}`) {
-        link.classList.add('bg-cubic-accent', 'text-cubic-primary');
-        link.classList.remove('text-cubic-text-secondary');
-      }
-    });
-    
-    // Actualizar la URL sin recargar la página
-    window.history.pushState({ page }, null, `#${page}`);
-  } catch (error) {
-    console.error('Error al cargar el contenido:', error);
-    document.getElementById('content').innerHTML = `
-      <div class="p-4 bg-red-100 text-red-800 rounded">
-        <p>Error al cargar la página: ${error.message}</p>
-      </div>`;
-  }
+// Load page based on URL hash
+function loadPageFromURL() {
+    const hash = window.location.hash.substring(1);
+    const page = hash || config.defaultPage;
+    loadPage(page);
 }
 
-// Manejar la navegación
-function handleNavigation() {
-    window.addEventListener('popstate', () => {
-        const params = new URLSearchParams(window.location.search);
-        const page = params.get('page');
-        loadMarkdownContent(page ? `${page}.md` : 'bienvenida.md');
-    });
-}
+// Load and render a Markdown page
+async function loadPage(pageName) {
+    const contentDiv = document.getElementById('markdownContent');
+    if (!contentDiv) return;
 
-// Inicializar cuando el DOM esté listo
-async function onDOMContentLoaded() {
+    // Update active state in navigation
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('data-page') === pageName);
+    });
+
+    // Update URL without page reload
+    if (window.location.hash.substring(1) !== pageName) {
+        window.history.pushState({}, '', `#${pageName}`);
+    }
+
+    // Show loading state
+    contentDiv.innerHTML = '<div class="loading">Cargando documentación...</div>';
+
     try {
-        await loadAvailablePages();
-        updateSidebar();
-        handleNavigation();
+        const response = await fetch(`${config.pagesPath}${pageName}${config.fileExtension}`);
         
-        // Cargar la página solicitada o la página de bienvenida por defecto
-        const params = new URLSearchParams(window.location.search);
-        const page = params.get('page');
-        await loadMarkdownContent(page ? `${page}.md` : 'bienvenida.md');
+        if (!response.ok) {
+            throw new Error('Página no encontrada');
+        }
+
+        const markdown = await response.text();
+        
+        // Render the markdown
+        contentDiv.innerHTML = marked.parse(markdown);
+        
+        // Add anchor links to headers
+        addAnchorLinks();
+        
+        // Apply syntax highlighting to code blocks
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightElement(block);
+        });
+
     } catch (error) {
-        console.error('Error al inicializar:', error);
+        console.error('Error loading page:', error);
+        contentDiv.innerHTML = `
+            <div class="error">
+                <h1>Página no encontrada</h1>
+                <p>La página que estás buscando no existe o no está disponible en este momento.</p>
+                <p><a href="#${config.defaultPage}">Volver a la página de inicio</a></p>
+            </div>
+        `;
     }
 }
 
-// Iniciar la carga del contenido
-window.markedLoaderInitialized = onDOMContentLoaded;
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
-} else {
-    onDOMContentLoaded();
+// Add anchor links to headers for easy sharing
+function addAnchorLinks() {
+    const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    
+    headers.forEach(header => {
+        if (!header.id) {
+            // Create an ID from the header text
+            const id = header.textContent
+                .toLowerCase()
+                .replace(/[^\w\u00C0-\u017F\- ]/g, '') // Remove special characters
+                .replace(/\s+/g, '-') // Replace spaces with dashes
+                .replace(/-+/g, '-') // Replace multiple dashes with one
+                .replace(/^-+|-+$/g, ''); // Remove leading/trailing dashes
+            
+            if (id) {
+                header.id = id;
+                
+                // Add anchor link
+                const anchor = document.createElement('a');
+                anchor.href = `#${id}`;
+                anchor.className = 'header-anchor';
+                anchor.innerHTML = '#';
+                anchor.ariaHidden = 'true';
+                
+                header.insertBefore(anchor, header.firstChild);
+            }
+        }
+    });
 }
+
+// Make loadPage available globally for direct calls from HTML if needed
+window.loadPage = loadPage;
