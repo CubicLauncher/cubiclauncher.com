@@ -283,5 +283,84 @@ function addAnchorLinks() {
     });
 }
 
+// Function to update the last modified date in the UI
+async function updateLastModifiedDate() {
+    const CACHE_KEY = 'docs_last_updated';
+    const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+    
+    // Try to get cached data first
+    const cachedData = localStorage.getItem(CACHE_KEY);
+    const now = new Date().getTime();
+    
+    if (cachedData) {
+        const { timestamp, date } = JSON.parse(cachedData);
+        // If cache is still valid, use it
+        if (now - timestamp < CACHE_DURATION) {
+            displayLastUpdated(date);
+            return;
+        }
+    }
+    
+    // If no cache or cache expired, fetch from GitHub
+    try {
+        const response = await fetch('https://api.github.com/repos/CubicLauncher/cubiclauncher.com/commits?path=docs/pages/&per_page=1');
+        if (!response.ok) throw new Error('Failed to fetch commit data');
+        
+        const commits = await response.json();
+        if (commits && commits.length > 0) {
+            const lastCommitDate = new Date(commits[0].commit.committer.date);
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZoneName: 'short'
+            };
+            const formattedDate = lastCommitDate.toLocaleDateString('es-ES', options);
+            
+            // Cache the result
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+                timestamp: now,
+                date: formattedDate
+            }));
+            
+            displayLastUpdated(formattedDate);
+        }
+    } catch (error) {
+        console.error('Error fetching last update date:', error);
+        // If there's an error but we have cached data, use it
+        if (cachedData) {
+            const { date } = JSON.parse(cachedData);
+            displayLastUpdated(date);
+        }
+    }
+}
+
+// Display the last updated date in the UI
+function displayLastUpdated(date) {
+    const lastUpdated = document.createElement('div');
+    lastUpdated.className = 'last-updated';
+    lastUpdated.innerHTML = `
+        <span class="last-updated-icon">🔄</span>
+        <span class="last-updated-text">Última actualización: ${date}</span>
+    `;
+    
+    // Add to the bottom of the content
+    const content = document.querySelector('.content');
+    const existing = document.querySelector('.last-updated');
+    if (existing) {
+        existing.replaceWith(lastUpdated);
+    } else {
+        content.appendChild(lastUpdated);
+    }
+}
+
+// Call this function when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Add a small delay to ensure the page is fully loaded
+    setTimeout(updateLastModifiedDate, 500);
+});
+
 // Make loadPage available globally for direct calls from HTML if needed
 window.loadPage = loadPage;
