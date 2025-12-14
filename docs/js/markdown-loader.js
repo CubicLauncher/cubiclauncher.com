@@ -146,9 +146,23 @@ function renderNavigation() {
 
 // Load page based on URL hash
 function loadPageFromURL() {
-    const hash = window.location.hash.substring(1);
-    const page = hash || config.defaultPage;
+    let hash = window.location.hash.substring(1);
+    // If there's a # in the hash, it means it's a section link
+    const hashParts = hash.split('#');
+    const page = hashParts[0] || config.defaultPage;
     loadPage(page);
+    
+    // If there's a section hash, scroll to it after the page loads
+    if (hashParts.length > 1) {
+        // Small delay to ensure the page is loaded
+        setTimeout(() => {
+            const sectionId = hashParts[1];
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView();
+            }
+        }, 100);
+    }
 }
 
 // Add edit page link
@@ -191,8 +205,12 @@ async function loadPage(pageName) {
     addEditPageLink(pageName);
 
     // Update URL without page reload
-    if (window.location.hash.substring(1) !== pageName) {
-        window.history.pushState({}, '', `#${pageName}`);
+    const currentHash = window.location.hash.substring(1);
+    const currentSection = currentHash.includes('#') ? currentHash.split('#')[1] : '';
+    const newHash = currentSection ? `${pageName}#${currentSection}` : pageName;
+    
+    if (currentHash !== newHash) {
+        window.history.pushState({}, '', `#${newHash}`);
     }
 
     // Show loading state
@@ -249,7 +267,12 @@ function addAnchorLinks() {
                 
                 // Add anchor link
                 const anchor = document.createElement('a');
-                anchor.href = `#${id}`;
+                // Get the current page name from the active navigation item
+                const activeLink = document.querySelector('.sidebar-nav a.active') || 
+                                 document.querySelector(`.sidebar-nav a[data-page="${config.defaultPage}"]`);
+                const currentPage = activeLink ? activeLink.getAttribute('data-page') : config.defaultPage;
+                // Create link with both page and section hash
+                anchor.href = `#${currentPage}#${id}`;
                 anchor.className = 'header-anchor';
                 anchor.innerHTML = '#';
                 anchor.ariaHidden = 'true';
