@@ -369,6 +369,74 @@
             border-radius: 0;
         }
 
+        /* Estilos para etiquetas de alerta al estilo GitHub */
+        .markdown-body .alert {
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border: 1px solid;
+            border-radius: 6px;
+            position: relative;
+            padding-left: 3.5rem;
+        }
+
+        .markdown-body .alert::before {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        .markdown-body .alert.alert-note {
+            background-color: rgba(9, 105, 218, 0.1);
+            border-color: rgba(84, 174, 255, 0.4);
+            color: #a5d6ff;
+        }
+
+        .markdown-body .alert.alert-note::before {
+            content: "ℹ️";
+        }
+
+        .markdown-body .alert.alert-warning {
+            background-color: rgba(255, 167, 0, 0.1);
+            border-color: rgba(255, 167, 0, 0.4);
+            color: #ffd467;
+        }
+
+        .markdown-body .alert.alert-warning::before {
+            content: "⚠️";
+        }
+
+        .markdown-body .alert.alert-important {
+            background-color: rgba(255, 123, 123, 0.1);
+            border-color: rgba(248, 81, 73, 0.4);
+            color: #ff9b9b;
+        }
+
+        .markdown-body .alert.alert-important::before {
+            content: "❗";
+        }
+
+        .markdown-body .alert.alert-tip {
+            background-color: rgba(46, 188, 79, 0.1);
+            border-color: rgba(46, 188, 79, 0.4);
+            color: #7ee787;
+        }
+
+        .markdown-body .alert.alert-tip::before {
+            content: "💡";
+        }
+
+        .markdown-body .alert p:last-child {
+            margin-bottom: 0;
+        }
+
+        .markdown-body .alert .alert-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
         .markdown-body blockquote {
             border-left: 4px solid var(--primary-color);
             color: #a0a0a0;
