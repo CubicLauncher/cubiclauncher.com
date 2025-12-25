@@ -236,6 +236,17 @@ async function loadPage(pageName) {
             hljs.highlightElement(block);
         });
 
+        // Get and display GitHub author info
+        try {
+            const filePath = `${config.pagesPath}${pageName}${config.fileExtension}`;
+            const authorInfo = await getGitHubAuthorInfo(filePath);
+            if (authorInfo) {
+                addAuthorInfo(authorInfo);
+            }
+        } catch (e) {
+            console.error('Error loading author info:', e);
+        }
+
     } catch (error) {
         console.error('Error loading page:', error);
         contentDiv.innerHTML = `
@@ -248,7 +259,37 @@ async function loadPage(pageName) {
     }
 }
 
-// Add anchor links to headers for easy sharing
+// Function to get GitHub author information for a file
+async function getGitHubAuthorInfo(filePath) {
+    try {
+        // Get the relative path from the docs directory
+        const relativePath = filePath.replace(/^.*docs[\\/]/, '').replace(/\\/g, '/');
+        const apiUrl = `https://api.github.com/repos/CubicLauncher/cubiclauncher.com/commits?path=docs/${encodeURIComponent(relativePath)}&per_page=1`;
+        
+        const response = await fetch(apiUrl, {
+            headers: {
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+        
+        if (!response.ok) throw new Error('No se pudo obtener la información del autor');
+        
+        const commits = await response.json();
+        if (commits.length === 0) return null;
+        
+        const lastCommit = commits[0];
+        return {
+            username: lastCommit.author?.login || lastCommit.commit.author.name,
+            avatar: lastCommit.author?.avatar_url || 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+            date: new Date(lastCommit.commit.author.date).toLocaleDateString()
+        };
+    } catch (error) {
+        console.error('Error obteniendo información del autor:', error);
+        return null;
+    }
+}
+
+// Add anchor links to headers
 function addAnchorLinks() {
     const headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
     
@@ -267,12 +308,7 @@ function addAnchorLinks() {
                 
                 // Add anchor link
                 const anchor = document.createElement('a');
-                // Get the current page name from the active navigation item
-                const activeLink = document.querySelector('.sidebar-nav a.active') || 
-                                 document.querySelector(`.sidebar-nav a[data-page="${config.defaultPage}"]`);
-                const currentPage = activeLink ? activeLink.getAttribute('data-page') : config.defaultPage;
-                // Create link with both page and section hash
-                anchor.href = `#${currentPage}#${id}`;
+                anchor.href = `#${id}`;
                 anchor.className = 'header-anchor';
                 anchor.innerHTML = '#';
                 anchor.ariaHidden = 'true';
@@ -281,6 +317,116 @@ function addAnchorLinks() {
             }
         }
     });
+}
+
+// Add author information and last updated date to the page
+function addAuthorInfo(authorInfo) {
+    const contentDiv = document.getElementById('markdownContent');
+    if (!contentDiv) return;
+    
+    // Create container for author and update info
+    const infoContainer = document.createElement('div');
+    infoContainer.className = 'doc-meta-info';
+    
+    // Get the update date from authorInfo or use current date
+    const updateDate = authorInfo?.date || new Date().toLocaleDateString();
+    
+    // Add author info if available
+    if (authorInfo) {
+        const authorHtml = `
+            <div class="author-info">
+                <a href="https://github.com/${authorInfo.username}" target="_blank" rel="noopener noreferrer" class="author-link">
+                    <img src="${authorInfo.avatar}" alt="${authorInfo.username}" class="author-avatar">
+                    <div class="author-details">
+                        <span class="author-name">${authorInfo.username}</span>
+                    </div>
+                </a>
+            </div>
+            <div class="last-updated">
+                <span class="last-updated-icon">🔄</span>
+                <span class="last-updated-text">Actualizado el ${updateDate}</span>
+            </div>
+        `;
+        infoContainer.insertAdjacentHTML('beforeend', authorHtml);
+    } else {
+        // If no author info, just show the update date
+        infoContainer.innerHTML = `
+            <div class="last-updated">
+                <span class="last-updated-icon">🔄</span>
+                <span class="last-updated-text">Actualizado el ${updateDate}</span>
+            </div>
+        `;
+    }
+    
+    // Add styles
+    const styles = `
+        <style>
+            .doc-meta-info {
+                margin: 2.5rem 0 1.5rem 0;
+                padding: 1rem 0 0 0;
+                border-top: 1px solid var(--border-color);
+            }
+            .author-info {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.5rem;
+            }
+            .author-avatar {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                margin-right: 12px;
+                border: 2px solid var(--primary-color);
+            }
+            .author-details {
+                display: flex;
+                flex-direction: column;
+            }
+            .author-name {
+                font-weight: 500;
+                color: var(--primary-color);
+                font-size: 0.95em;
+                text-decoration: none;
+            }
+            .author-name:hover {
+                text-decoration: underline;
+            }
+            .last-updated {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 0.85em;
+                color: var(--text-color);
+                opacity: 0.7;
+                margin-top: 0.25rem;
+            }
+            .last-updated-icon {
+                font-size: 0.9em;
+            }
+            /* Make the avatar and name clickable */
+            .author-link {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: inherit;
+            }
+            .author-link:hover .author-name {
+                text-decoration: underline;
+            }
+        </style>
+    `;
+    
+    // Add everything to the page
+    contentDiv.insertAdjacentHTML('beforeend', styles);
+    contentDiv.appendChild(infoContainer);
+}
+
+// Keep the displayLastUpdated function but make it use the new combined format
+function displayLastUpdated(date) {
+    const lastUpdated = document.querySelector('.last-updated-text');
+    if (lastUpdated) {
+        lastUpdated.textContent = `Última actualización: ${date}`;
+    }
 }
 
 // Function to update the last modified date in the UI
