@@ -1,19 +1,36 @@
-# Documentación de CubicLauncher
+# Bienvenido a CubicLauncher
 
-Si no sabes por donde empezar, ve a la sección de **guía** para comenzar.
+**CubicLauncher** es un lanzador de **Minecraft** de código abierto diseñado para ofrecer una experiencia optimizada, ligera y personalizable. Nos enfocamos en el rendimiento, la facilidad de uso y la libertad, permitiendo a los usuarios disfrutar del juego sin complicaciones.
 
-**CubicLauncher** es un launcher de **Minecraft** de código abierto, desarrollado con el objetivo de proporcionar una experiencia de juego optimizada, especialmente para usuarios que no cuentan con una cuenta premium. Nos enfocamos en ofrecer un rendimiento sólido, compatibilidad con diversas versiones del juego y una interfaz clara y eficiente.
+## ¿Qué es CubicLauncher?
 
-### Licencias
+CubicLauncher no es solo otro lanzador; es un proyecto comunitario nacido de la necesidad de un software transparente y eficiente. 
 
-Todos los proyectos de esta organización están distribuidos bajo licencias de software libre.
+### Características principales:
+- **Optimizado**: Consume pocos recursos, ideal para equipos de gama baja.
+- **Transparente**: 100% código abierto bajo la licencia GPL-3.0.
+- **Personalizable**: Ajusta desde el rendimiento hasta la apariencia visual.
+- **Soporte Multi-Versión**: Compatible con versiones Alpha, Beta y las más recientes.
 
-- Las **librerías** se distribuyen bajo la **Licencia LGPL-2.1**, lo que permite su libre uso, modificación y distribución, incluso en software propietario, siempre que se respeten los términos definidos en dicha licencia.
+## Por dónde empezar
 
-- El resto de los proyectos están licenciados bajo la **GPL-3.0**, que garantiza las mismas libertades (uso, modificación y distribución), pero exige que cualquier trabajo derivado también se distribuya bajo la misma licencia GPL-3.0.
+Si eres nuevo, te recomendamos seguir estos pasos:
 
-## Comunidad
+1.  **[Instalación](#instalacion)**: Aprende cómo instalar el launcher en tu sistema.
+2.  **[Configuración](#configuracion)**: Ajusta los parámetros de memoria y Java para un mejor rendimiento.
+3.  **[Personalización](#personalizacion)**: Cambia el estilo y los temas del launcher.
 
-CubicLauncher es una comunidad abierta. Si deseas participar, compartir ideas, reportar errores o simplemente estar al tanto del desarrollo, puedes unirte a nuestros canales oficiales:
+## Comunidad y soporte
 
-<a href="https://discord.gg/RxQMDvVYkt" class="btn btn-primary btn-sm">Discord</a>  <a href="https://www.reddit.com/r/CubicLauncher/" class="btn btn-primary btn-sm">Subreddit oficial</a>
+CubicLauncher crece gracias a su comunidad. Si encuentras un error o tienes una sugerencia, no dudes en contactarnos:
+
+<div class="flex-row">
+    <a href="https://discord.gg/RxQMDvVYkt" class="btn btn-primary">Discord</a>
+    <a href="https://www.reddit.com/r/CubicLauncher/" class="btn btn-primary">Subreddit</a>
+    <a href="https://github.com/CubicLauncher/CubicLauncher" class="btn btn-primary">GitHub</a>
+</div>
+
+## Licencias
+
+- **CubicLauncher**: Distribuido bajo la [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+- **Librerías del núcleo**: Distribuidas bajo la [LGPL-2.1](https://www.gnu.org/licenses/lgpl-2.1.html).

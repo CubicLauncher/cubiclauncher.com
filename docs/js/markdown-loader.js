@@ -8,27 +8,26 @@ const config = {
             title: 'Resumen',
             items: [
                 { title: 'Bienvenida', file: 'welcome' },
-                { title: 'Soporte', file: 'support' },
-                { title: 'Instalación', file: 'instalacion' }
+                { title: 'Instalación', file: 'instalacion' },
+                { title: 'Soporte', file: 'support' }
             ]
         },
         {
             title: 'Guías',
             items: [
                 { title: 'Configuración', file: 'configuracion' },
-                { title: 'Personalización', file: 'personalizacion' },
-                { title: 'Temas', file: 'temas' }
+                { title: 'Uso de la Consola', file: 'consola' }
             ]
         },
         {
-            title: 'Avanzado',
+            title: 'Desarrollo',
             items: [
-                { title: 'API', file: 'api' },
-                { title: 'Plugins', file: 'plugins' },
-                { title: 'Contribuir', file: 'contribuir' }
+                { title: 'Contribuir', file: 'contribuir' },
+                { title: 'Licencias', file: 'licencias' }
             ]
         }
     ]
+
 };
 
 // Initialize the documentation
