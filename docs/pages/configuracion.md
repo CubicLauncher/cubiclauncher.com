@@ -17,7 +17,7 @@ Puedes habilitar la visibilidad de versiones en desarrollo:
 - **Mostrar versiones Beta**: Acceso a las primeras betas del juego.
 
 ### Rendimiento
-- **Forzar GPU dedicada**: En equipos con gráficos integrados y dedicados (como laptops), intenta forzar el uso de la tarjeta más potente.
+- **Forzar GPU dedicada**: En equipos con gráficos integrados y dedicados (como laptops), intenta forzar el uso de la tarjeta dedicada. (Importante en Linux)
 
 ## Java y Memoria
 
