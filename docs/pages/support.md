@@ -15,7 +15,7 @@
 </div>
 
 <div class="faq-item">
-    <strong>¿Puedo usar mods como Forge o Fabric?</strong>
+    <strong>¿Puedo usar mods con Forge o Fabric?</strong>
     <p>¡Claro! CubicLauncher está diseñado para ser compatible con los principales cargadores de mods. Solo asegúrate de instalar la versión correspondiente en tu instancia.</p>
 </div>
 
