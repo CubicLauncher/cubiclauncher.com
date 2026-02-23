@@ -36,4 +36,4 @@ CubicLauncher crece gracias a su comunidad. Si encuentras un error o tienes una 
 ## Licencias
 
 - **CubicLauncher**: Distribuido bajo la [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html).
-- **Librerías del núcleo**: Distribuidas bajo la [LGPL-2.1](https://www.gnu.org/licenses/lgpl-2.1.html).
+- **Librerías del Core**: Distribuidas bajo la [LGPL-2.1](https://www.gnu.org/licenses/lgpl-2.1.html).
