@@ -30,6 +30,28 @@ const config = {
 
 };
 
+// Global cache for page contents to enable full-text search
+const contentCache = {};
+async function indexAllPages() {
+    for (const section of config.navigation) {
+        for (const item of section.items) {
+            try {
+                const response = await fetch(`${config.pagesPath}${item.file}${config.fileExtension}`);
+                if (response.ok) {
+                    const text = await response.text();
+                    contentCache[item.file] = {
+                        title: item.title,
+                        content: text,
+                        section: section.title
+                    };
+                }
+            } catch (e) {
+                console.error(`Error indexing ${item.file}:`, e);
+            }
+        }
+    }
+}
+
 // Initialize the documentation
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize mobile menu toggle
@@ -66,6 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render navigation
     renderNavigation();
+
+    // Initialize search
+    initSearch();
 
     // Load the initial page
     loadPageFromURL();
@@ -499,6 +524,111 @@ function displayLastUpdated(date) {
     } else {
         content.appendChild(lastUpdated);
     }
+}
+
+// Search functionality
+function initSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    if (!searchInput || !searchResults) return;
+
+    // Start indexing as soon as search is initialized
+    indexAllPages();
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+
+        if (query.length < 3) {
+            searchResults.style.display = 'none';
+            return;
+        }
+
+        const matches = [];
+
+        // Search in the cached full text
+        for (const file in contentCache) {
+            const page = contentCache[file];
+            const lowerContent = page.content.toLowerCase();
+            const lowerTitle = page.title.toLowerCase();
+
+            if (lowerTitle.includes(query) || lowerContent.includes(query)) {
+                // Try to find a snippet of context
+                let snippet = "";
+                const index = lowerContent.indexOf(query);
+                if (index !== -1) {
+                    const start = Math.max(0, index - 40);
+                    const end = Math.min(page.content.length, index + query.length + 40);
+                    snippet = page.content.substring(start, end)
+                        .replace(/[#*`]/g, '') // Clean markdown signs
+                        .trim();
+                    snippet = `...${snippet}...`;
+                }
+
+                matches.push({
+                    title: page.title,
+                    file: file,
+                    section: page.section,
+                    snippet: snippet,
+                    score: lowerTitle.includes(query) ? 10 : 1 // Prioritize title matches
+                });
+            }
+        }
+
+        // Sort results by score (titles first)
+        matches.sort((a, b) => b.score - a.score);
+
+        renderSearchResults(matches.slice(0, 8)); // Limit to top 8 results
+    });
+
+    // Close search results when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+            searchResults.style.display = 'none';
+        }
+    });
+
+    // Handle focus to show results if query exists
+    searchInput.addEventListener('focus', () => {
+        if (searchInput.value.trim().length >= 3) {
+            searchResults.style.display = 'block';
+        }
+    });
+}
+
+function renderSearchResults(matches) {
+    const searchResults = document.getElementById('searchResults');
+
+    if (matches.length === 0) {
+        searchResults.innerHTML = '<div class="search-no-results">No se encontraron resultados</div>';
+    } else {
+        searchResults.innerHTML = matches.map(match => `
+            <div class="search-result-item" data-page="${match.file}">
+                <div class="search-result-header">
+                    <span class="search-result-title">${match.title}</span>
+                    <span class="search-result-path">${match.section}</span>
+                </div>
+                ${match.snippet ? `<div class="search-result-snippet">${match.snippet}</div>` : ''}
+            </div>
+        `).join('');
+
+        // Add click events to results
+        searchResults.querySelectorAll('.search-result-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const page = item.getAttribute('data-page');
+                loadPage(page);
+                document.getElementById('searchInput').value = '';
+                searchResults.style.display = 'none';
+
+                // Close mobile menu if open
+                if (window.innerWidth <= 960) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            });
+        });
+    }
+
+    searchResults.style.display = 'block';
 }
 
 // Call this function when the page loads
