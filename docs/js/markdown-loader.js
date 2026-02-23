@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close menu when clicking outside on mobile
     document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768 &&
+        if (window.innerWidth <= 960 &&
             !sidebar.contains(e.target) &&
-            e.target !== menuToggle) {
+            !menuToggle.contains(e.target)) {
             sidebar.classList.remove('active');
         }
     });
