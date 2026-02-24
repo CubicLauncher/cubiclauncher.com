@@ -37,15 +37,28 @@ Si prefieres editar la configuración manualmente (para usuarios avanzados), pue
 
 ```json
 {
-  "language": "es_es",
+  "language": "en_us",
   "autoUpdate": true,
   "errorConsole": false,
-  "maxMemory": 4,
-  "maxMemoryUnit": "GB"
+  "closeLauncherOnGameStart": false,
+  "showAlphaVersions": false,
+  "showBetaVersions": false,
+  "forceDiscreteGpu": false,
+  "minMemory": 512,
+  "maxMemory": 2,
+  "jre8_path": "path Java 8",
+  "jre17_path": "path Java 17",
+  "jre21_path": "path Java 21",
+  "jvmArguments": "",
+  "minMemoryUnit": "MB",
+  "maxMemoryUnit": "GB",
+  "username": "steve",
+  "firstLaunch": false,
+  "native_styles": false
 }
 ```
 
 <div class="alert alert-warning">
     <strong>¡Cuidado!</strong>
-    <p>Modificar el archivo settings.json incorrectamente puede causar que el launcher no inicie. Haz una copia de seguridad antes de editar.</p>
+    <p>Si vas a modificar el archivo manualmente, asegúrate de guardar una copia de seguridad <br> para no perder tus configuraciones.</p>
 </div>
