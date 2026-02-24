@@ -13,7 +13,7 @@ La aplicación principal de CubicLauncher está licenciada bajo la **GNU General
 
 ## Librerías y Núcleo
 
-Las librerías desarrolladas por la organización CubicLauncher (como el núcleo de lanzamiento) se distribuyen bajo la **GNU Lesser General Public License v2.1 (LGPL-2.1)**.
+Las librerías desarrolladas por la organización CubicLauncher, como **[CLaunch](#claunch)** (librería de lanzamiento) y **[Proton](#proton)** (librería de descargas), se distribuyen bajo la **GNU Lesser General Public License v2.1 (LGPL-2.1)**.
 
 Esta licencia permite que las librerías sean utilizadas por otros proyectos, incluso aquellos que no son GPL, siempre que los cambios realizados en la librería propia se liberen bajo los mismos términos.
 

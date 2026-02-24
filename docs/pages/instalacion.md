@@ -38,7 +38,7 @@ Dentro de la carpeta de CubicLauncher (donde se instale en tu SO), encontrarás:
 - `lang/`: Archivos de idioma personalizados.
 - `styles/`: Archivos CSS para personalización visual.
 
-<div class="alert alert-info">
+<div class="alert alert-sugerencia">
     <strong>Sugerencia:</strong>
-    <p>Si tienes problemas con la instalación, consulta nuestra sección de <a href="#soporte">Soporte</a>.</p>
+    <p>Si tienes problemas con la instalación, consulta nuestra sección de <a href="https://discord.gg/WQ5KtQYj">Soporte</a>.</p>
 </div>

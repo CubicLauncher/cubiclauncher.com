@@ -20,6 +20,13 @@ const config = {
             ]
         },
         {
+            title: 'Librerías',
+            items: [
+                { title: 'CLaunch', file: 'claunch' },
+                { title: 'Proton', file: 'proton' }
+            ]
+        },
+        {
             title: 'Desarrollo',
             items: [
                 { title: 'Contribuir', file: 'contribuir' },
@@ -61,15 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle && sidebar) {
         menuToggle.addEventListener('click', () => {
             sidebar.classList.toggle('active');
+            document.body.classList.toggle('menu-open', sidebar.classList.contains('active'));
         });
     }
 
     // Close menu when clicking outside on mobile
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 960 &&
+            sidebar.classList.contains('active') &&
             !sidebar.contains(e.target) &&
             !menuToggle.contains(e.target)) {
             sidebar.classList.remove('active');
+            document.body.classList.remove('menu-open');
         }
     });
 
@@ -150,8 +160,9 @@ function renderNavigation() {
             if (page) {
                 loadPage(page);
                 // Close mobile menu after selection
-                if (window.innerWidth <= 768) {
-                    document.getElementById('sidebar').classList.remove('active');
+                if (window.innerWidth <= 960) {
+                    sidebar.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                 }
             }
         });
@@ -623,6 +634,7 @@ function renderSearchResults(matches) {
                 // Close mobile menu if open
                 if (window.innerWidth <= 960) {
                     document.getElementById('sidebar').classList.remove('active');
+                    document.body.classList.remove('menu-open');
                 }
             });
         });

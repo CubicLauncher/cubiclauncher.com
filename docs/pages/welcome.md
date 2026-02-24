@@ -30,10 +30,7 @@ CubicLauncher crece gracias a su comunidad. Si encuentras un error o tienes una 
     <a href="https://github.com/CubicLauncher/CubicLauncher" class="btn btn-primary">GitHub</a>
 </div>
 
-## Contribuidores
-<img src="https://contrib.rocks/image?repo=CubicLauncher/CubicLauncher">
-
 ## Licencias
 
 - **CubicLauncher**: Distribuido bajo la [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html).
-- **Librerías del Core**: Distribuidas bajo la [LGPL-2.1](https://www.gnu.org/licenses/lgpl-2.1.html).
+- **Librerías del núcleo**: Distribuidas bajo la [LGPL-2.1](https://www.gnu.org/licenses/lgpl-2.1.html).
