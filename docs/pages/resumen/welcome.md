@@ -16,9 +16,9 @@ CubicLauncher no es solo otro lanzador; es un proyecto comunitario nacido de la 
 
 Si eres nuevo, te recomendamos seguir estos pasos:
 
-1.  **[Instalación](#instalacion)**: Aprende cómo instalar el launcher en tu sistema.
-2.  **[Configuración](#configuracion)**: Ajusta los parámetros de memoria y Java para un mejor rendimiento.
-3.  **[Personalización](#personalizacion)**: Cambia el estilo y los temas del launcher.
+1.  **[Instalación](#resumen/instalacion)**: Aprende cómo instalar el launcher en tu sistema.
+2.  **[Configuración](#guias/configuracion)**: Ajusta los parámetros de memoria y Java para un mejor rendimiento.
+3.  **[Personalización](#guias/configuracion)**: Cambia el estilo y los temas del launcher.
 
 ## Comunidad y soporte
 
@@ -30,7 +30,10 @@ CubicLauncher crece gracias a su comunidad. Si encuentras un error o tienes una 
     <a href="https://github.com/CubicLauncher/CubicLauncher" class="btn btn-primary">GitHub</a>
 </div>
 
+## Contribuidores
+<img src="https://contrib.rocks/image?repo=CubicLauncher/CubicLauncher">
+
 ## Licencias
 
 - **CubicLauncher**: Distribuido bajo la [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html).
-- **Librerías del núcleo**: Distribuidas bajo la [LGPL-2.1](https://www.gnu.org/licenses/lgpl-2.1.html).
+- **Librerías propias**: Distribuidas bajo la [LGPL-2.1](https://www.gnu.org/licenses/lgpl-2.1.html).

@@ -17,7 +17,7 @@ Puedes habilitar la consola desde la configuración general activando la opción
 
 Si el juego se cierra inesperadamente (Crash), la consola mostrará la causa raíz. Los errores más comunes suelen ser:
 
-1.  **OutOfMemoryError**: Java se ha quedado sin memoria asignada. Prueba aumentar la RAM en la [Configuración](#configuracion).
+1.  **OutOfMemoryError**: Java se ha quedado sin memoria asignada. Prueba aumentar la RAM en la [Configuración](#guias/configuracion).
 2.  **Incompatible JRE**: Estás intentando ejecutar una versión de Minecraft con una versión de Java incorrecta.
 3.  **Missing Libraries**: Archivos corruptos o descargas incompletas.
 

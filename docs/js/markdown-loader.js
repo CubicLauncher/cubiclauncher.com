@@ -1,36 +1,36 @@
 // Configuration
 const config = {
-    defaultPage: 'welcome',
+    defaultPage: 'resumen/welcome',
     pagesPath: 'pages/',
     fileExtension: '.md',
     navigation: [
         {
             title: 'Resumen',
             items: [
-                { title: 'Bienvenida', file: 'welcome' },
-                { title: 'Instalación', file: 'instalacion' },
-                { title: 'Soporte', file: 'support' }
+                { title: 'Bienvenida', file: 'resumen/welcome' },
+                { title: 'Instalación', file: 'resumen/instalacion' },
+                { title: 'Soporte', file: 'resumen/support' }
             ]
         },
         {
             title: 'Guías',
             items: [
-                { title: 'Configuración', file: 'configuracion' },
-                { title: 'Uso de la Consola', file: 'consola' }
+                { title: 'Configuración', file: 'guias/configuracion' },
+                { title: 'Uso de la Consola', file: 'guias/consola' }
             ]
         },
         {
             title: 'Librerías',
             items: [
-                { title: 'CLaunch', file: 'claunch' },
-                { title: 'Proton', file: 'proton' }
+                { title: 'CLaunch', file: 'librerias/claunch' },
+                { title: 'Proton', file: 'librerias/proton' }
             ]
         },
         {
             title: 'Desarrollo',
             items: [
-                { title: 'Contribuir', file: 'contribuir' },
-                { title: 'Licencias', file: 'licencias' }
+                { title: 'Contribuir', file: 'desarrollo/contribuir' },
+                { title: 'Licencias', file: 'desarrollo/licencias' }
             ]
         }
     ]

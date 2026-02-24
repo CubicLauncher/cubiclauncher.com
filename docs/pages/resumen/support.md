@@ -6,7 +6,7 @@
 
 <div class="faq-item">
     <strong>¿Por qué mi juego no inicia?</strong>
-    <p>La mayoría de las veces se debe a una versión de Java incorrecta o falta de memoria RAM asignada. Revisa la sección de <a href="#configuracion">Configuración</a>.</p>
+    <p>La mayoría de las veces se debe a una versión de Java incorrecta o falta de memoria RAM asignada. Revisa la sección de <a href="#guias/configuracion">Configuración</a>.</p>
 </div>
 
 <div class="faq-item">
@@ -32,7 +32,7 @@ Si no encuentras la solución en las guías, únete a nuestra comunidad:
 Para que podamos ayudarte mejor, por favor incluye:
 1. Tu sistema operativo (Windows 10, Ubuntu 22.04, etc.).
 2. La versión de Minecraft que intentas ejecutar.
-3. El log de la [Consola](#consola) (copia y pega el error).
+3. El log de la [Consola](#guias/consola) (copia y pega el error).
 4. Una breve descripción de qué estabas haciendo cuando ocurrió el problema.
 
 <div class="alert alert-note">

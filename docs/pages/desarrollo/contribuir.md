@@ -8,7 +8,7 @@
 Si encuentras un bug o un comportamiento inesperado:
 - Abre un **Issue** en nuestro [repositorio de GitHub](https://github.com/CubicLauncher/CubicLauncher/issues).
 - Describe los pasos para reproducir el error.
-- Adjunta los logs de la [consola](#consola) si es posible.
+- Adjunta los logs de la [consola](#guias/consola) si es posible.
 
 ### 2. Sugerir funciones
 ¿Tienes una idea genial? 
