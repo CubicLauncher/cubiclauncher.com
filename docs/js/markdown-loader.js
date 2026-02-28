@@ -8,13 +8,13 @@ const config = {
             title: 'Resumen',
             items: [
                 { title: 'Bienvenida', file: 'resumen/welcome' },
-                { title: 'Instalación', file: 'resumen/instalacion' },
                 { title: 'Soporte', file: 'resumen/support' }
             ]
         },
         {
             title: 'Guías',
             items: [
+                { title: 'Instalación', file: 'guias/instalacion' },
                 { title: 'Configuración', file: 'guias/configuracion' },
                 { title: 'Uso de la Consola', file: 'guias/consola' }
             ]
@@ -29,6 +29,7 @@ const config = {
         {
             title: 'Desarrollo',
             items: [
+                { title: 'Compilación', file: 'desarrollo/compilacion' },
                 { title: 'Contribuir', file: 'desarrollo/contribuir' },
                 { title: 'Licencias', file: 'desarrollo/licencias' }
             ]

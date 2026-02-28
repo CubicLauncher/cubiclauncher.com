@@ -16,7 +16,7 @@ CubicLauncher no es solo otro lanzador; es un proyecto comunitario nacido de la 
 
 Si eres nuevo, te recomendamos seguir estos pasos:
 
-1.  **[Instalación](#resumen/instalacion)**: Aprende cómo instalar el launcher en tu sistema.
+1.  **[Instalación](#guias/instalacion)**: Aprende cómo instalar el launcher en tu sistema.
 2.  **[Configuración](#guias/configuracion)**: Ajusta los parámetros de memoria y Java para un mejor rendimiento.
 3.  **[Personalización](#guias/configuracion)**: Cambia el estilo y los temas del launcher.
 

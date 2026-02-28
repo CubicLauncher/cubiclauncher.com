@@ -4,39 +4,23 @@ Para comenzar a usar CubicLauncher, asegúrate de cumplir con los requisitos mí
 
 ## Requisitos previos
 
-CubicLauncher está desarrollado en Java 21. Es fundamental tener instalada una versión compatible del Java Runtime Environment (JRE).
+CubicLauncher está desarrollado en **OpenJDK 21**. Es fundamental tener instalada esta versión para que el launcher funcione correctamente.
 
-- **Java**: Se recomienda **Java 21** para el funcionamiento del launcher.
-- **Memoria**: Al menos 2GB de RAM recomendados (ajustable en la configuración).
-- **Espacio**: El launcher en sí es ligero, pero Minecraft y sus versiones requerirán espacio adicional.
+- **Java**: Se recomienda **OpenJDK 21** (Adoptium Temurin).
+- **Memoria**: Al menos 2GB de RAM recomendados.
+- **Espacio**: El launcher es ligero, pero Minecraft requerirá espacio adicional.
 
-## Instalación por Sistema Operativo
+## Instalación (Archivo .JAR)
 
-### Windows
-1. Descarga el archivo `.jar` ejecutable desde la sección de [Releases en GitHub](https://github.com/CubicLauncher/CubicLauncher/releases).
-2. Asegúrate de tener Java 21 instalado (`java -version` en la terminal).
-3. Haz doble clic en el archivo para iniciar.
-4. Los archivos de configuración se guardarán en `%APPDATA%\CubicLauncher`.
+CubicLauncher se distribuye únicamente en formato `.jar` por el momento, lo que garantiza compatibilidad universal.
 
-### Linux
-1. Descarga el archivo `.jar`.
-2. Otorga permisos de ejecución: `chmod +x CubicLauncher.jar`.
-3. Ejecuta con: `java -jar CubicLauncher.jar`.
-4. Los archivos de configuración se guardarán en `~/.cubic`.
+1. **Descarga**: Obtén el archivo `CubicLauncher.jar` desde GitHub.
+2. **Ejecución**: 
+   - En **Windows/macOS**: Haz doble clic (asegúrate de tener Java 21 instalado).
+     *(Nota: En macOS la versión se considera experimental y no ha sido probada oficialmente)*.
+   - En **Linux**: `java -jar CubicLauncher.jar` (recuerda dar permisos de ejecución).
 
-### macOS
-1. Descarga el archivo `.jar`.
-2. Asegúrate de tener los permisos necesarios para ejecutar aplicaciones de terceros.
-3. Los archivos de configuración se guardarán en `~/Library/Application Support/CubicLauncher`.
-
-## Estructura de archivos
-
-Dentro de la carpeta de CubicLauncher (donde se instale en tu SO), encontrarás:
-
-- `instances/`: Tus perfiles y versiones de Minecraft.
-- `settings.json`: Configuración general del launcher.
-- `lang/`: Archivos de idioma personalizados.
-- `styles/`: Archivos CSS para personalización visual.
+Para una guía detallada paso a paso, consulta nuestra [Sección de Guías](#guias/instalacion).
 
 <div class="alert alert-sugerencia">
     <strong>Sugerencia:</strong>
