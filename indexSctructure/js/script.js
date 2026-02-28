@@ -85,30 +85,49 @@ async function fetchContributors() {
     if (!container) return;
 
     try {
-        const response = await fetch('https://api.github.com/repos/CubicLauncher/CubicLauncher/contributors');
-        if (!response.ok) throw new Error('Network response was not ok');
+        const [repo1Response, repo2Response] = await Promise.all([
+            fetch('https://api.github.com/repos/CubicLauncher/CubicLauncher/contributors'),
+            fetch('https://api.github.com/repos/CubicLauncher/cubiclauncher.com/contributors')
+        ]);
 
-        const contributors = await response.json();
-        if (contributors && contributors.length > 0) {
+        if (!repo1Response.ok || !repo2Response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const repo1Contributors = await repo1Response.json();
+        const repo2Contributors = await repo2Response.json();
+
+        // Combinar contribuidores de ambos repositorios
+        const allContributors = [...repo1Contributors, ...repo2Contributors];
+
+        // Eliminar duplicados basándose en el login y filtrar bots
+        const uniqueContributorsMap = new Map();
+        allContributors.forEach(contributor => {
+            if (contributor.type !== 'Bot' && !uniqueContributorsMap.has(contributor.login)) {
+                uniqueContributorsMap.set(contributor.login, contributor);
+            }
+        });
+
+        const uniqueContributors = Array.from(uniqueContributorsMap.values());
+
+        if (uniqueContributors.length > 0) {
             container.innerHTML = '';
 
-            contributors
-                .filter(contributor => contributor.type !== 'Bot')
-                .forEach(contributor => {
-                    const contributorLink = document.createElement('a');
-                    contributorLink.href = contributor.html_url;
-                    contributorLink.target = '_blank';
-                    contributorLink.className = 'group flex flex-col items-center gap-2 transition-transform hover:scale-110';
+            uniqueContributors.forEach(contributor => {
+                const contributorLink = document.createElement('a');
+                contributorLink.href = contributor.html_url;
+                contributorLink.target = '_blank';
+                contributorLink.className = 'group flex flex-col items-center gap-2 transition-transform hover:scale-110';
 
-                    contributorLink.innerHTML = `
-                            <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-cubic-border group-hover:border-cubic-primary transition-colors">
-                                <img src="${contributor.avatar_url}" alt="${contributor.login}" class="w-full h-full object-cover">
-                            </div>
-                            <span class="text-sm font-medium text-cubic-text-secondary group-hover:text-cubic-text-primary transition-colors">${contributor.login}</span>
-                        `;
+                contributorLink.innerHTML = `
+                        <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-cubic-border group-hover:border-cubic-primary transition-colors">
+                            <img src="${contributor.avatar_url}" alt="${contributor.login}" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-sm font-medium text-cubic-text-secondary group-hover:text-cubic-text-primary transition-colors">${contributor.login}</span>
+                    `;
 
-                    container.appendChild(contributorLink);
-                });
+                container.appendChild(contributorLink);
+            });
         } else {
             container.innerHTML = '<p class="text-cubic-text-secondary">No se encontraron contribuidores.</p>';
         }
