@@ -102,68 +102,171 @@
             </a>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 mb-20">
-            <!-- Windows -->
-            <div id="os-windows"
-                class="os-card bg-cubic-darker p-8 rounded-2xl border border-cubic-border flex flex-col items-center text-center">
-                <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6">
-                    <i class="fab fa-windows text-3xl"></i>
+        <!-- Tab Toggle -->
+        <div class="flex justify-center mb-10">
+            <div class="bg-cubic-darker border border-cubic-border p-1.5 rounded-xl flex items-center gap-1 shadow-2xl">
+                <button id="btn-old"
+                    class="px-8 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 bg-white/10 text-white shadow-lg">
+                    Old (.jar)
+                </button>
+                <button id="btn-new"
+                    class="px-8 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 text-cubic-text-secondary hover:text-white hover:bg-white/5">
+                    New (Native)
+                </button>
+            </div>
+        </div>
+
+        <!-- Versions Container -->
+        <div id="versions-container">
+            <!-- Old Versions (Original Content) -->
+            <div id="view-old" class="grid md:grid-cols-3 gap-8 mb-20">
+                <!-- Windows -->
+                <div id="os-windows"
+                    class="os-card bg-cubic-darker p-8 rounded-2xl border border-cubic-border flex flex-col items-center text-center">
+                    <div
+                        class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6">
+                        <i class="fab fa-windows text-3xl"></i>
+                    </div>
+                    <div class="mb-2 flex items-center gap-2">
+                        <h2 class="text-2xl font-bold">Windows</h2>
+                        <span
+                            class="os-badge bg-cubic-primary text-cubic-dark text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Recomendado</span>
+                    </div>
+                    <p class="text-cubic-text-secondary mb-8 h-12">Universal (.JAR)</p>
+                    <div class="mt-auto w-full">
+                        <a href="https://github.com/CubicLauncher/CubicLauncher/releases/latest"
+                            class="btn-primary w-full block text-center py-3">
+                            Descargar .JAR
+                        </a>
+                    </div>
                 </div>
-                <div class="mb-2 flex items-center gap-2">
-                    <h2 class="text-2xl font-bold">Windows</h2>
-                    <span
-                        class="os-badge bg-cubic-primary text-cubic-dark text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Recomendado</span>
+
+                <!-- macOS -->
+                <div id="os-macos"
+                    class="os-card bg-cubic-darker p-8 rounded-2xl border border-cubic-border flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white mb-6">
+                        <i class="fab fa-apple text-3xl"></i>
+                    </div>
+                    <div class="mb-2 flex items-center gap-2">
+                        <h2 class="text-2xl font-bold">macOS</h2>
+                        <span
+                            class="bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Experimental</span>
+                    </div>
+                    <p class="text-cubic-text-secondary mb-2 h-12">Universal (.JAR)</p>
+                    <p class="text-[11px] text-yellow-500/70 mb-4 px-4 leading-tight">
+                        <i class="fas fa-exclamation-triangle mr-1"></i> No testeado oficialmente. Puede presentar
+                        errores.
+                    </p>
+                    <div class="mt-auto w-full">
+                        <a href="https://github.com/CubicLauncher/CubicLauncher/releases/latest"
+                            class="btn-primary w-full block text-center py-3">
+                            Descargar .JAR
+                        </a>
+                    </div>
                 </div>
-                <p class="text-cubic-text-secondary mb-8 h-12">Universal (.JAR)</p>
-                <div class="mt-auto w-full">
-                    <a href="https://github.com/CubicLauncher/CubicLauncher/releases/latest"
-                        class="btn-primary w-full block text-center py-3">
-                        Descargar .JAR
-                    </a>
+
+                <!-- Linux -->
+                <div id="os-linux"
+                    class="os-card bg-cubic-darker p-8 rounded-2xl border border-cubic-border flex flex-col items-center text-center">
+                    <div
+                        class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-400 mb-6">
+                        <i class="fab fa-linux text-3xl"></i>
+                    </div>
+                    <div class="mb-2 flex items-center gap-2">
+                        <h2 class="text-2xl font-bold">Linux</h2>
+                        <span
+                            class="os-badge bg-cubic-primary text-cubic-dark text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Recomendado</span>
+                    </div>
+                    <p class="text-cubic-text-secondary mb-8 h-12">Universal (.JAR)</p>
+                    <div class="mt-auto w-full">
+                        <a href="https://github.com/CubicLauncher/CubicLauncher/releases/latest"
+                            class="btn-primary w-full block text-center py-3">
+                            Descargar .JAR
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <!-- macOS -->
-            <div id="os-macos"
-                class="os-card bg-cubic-darker p-8 rounded-2xl border border-cubic-border flex flex-col items-center text-center">
-                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white mb-6">
-                    <i class="fab fa-apple text-3xl"></i>
-                </div>
-                <div class="mb-2 flex items-center gap-2">
-                    <h2 class="text-2xl font-bold">macOS</h2>
-                    <span
-                        class="bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Experimental</span>
-                </div>
-                <p class="text-cubic-text-secondary mb-2 h-12">Universal (.JAR)</p>
-                <p class="text-[11px] text-yellow-500/70 mb-4 px-4 leading-tight">
-                    <i class="fas fa-exclamation-triangle mr-1"></i> No testeado oficialmente. Puede presentar errores.
-                </p>
-                <div class="mt-auto w-full">
-                    <a href="https://github.com/CubicLauncher/CubicLauncher/releases/latest"
-                        class="btn-primary w-full block text-center py-3">
-                        Descargar .JAR
-                    </a>
-                </div>
-            </div>
-
-            <!-- Linux -->
-            <div id="os-linux"
-                class="os-card bg-cubic-darker p-8 rounded-2xl border border-cubic-border flex flex-col items-center text-center">
+            <!-- New Versions (Locked) -->
+            <div id="view-new" class="hidden grid md:grid-cols-3 gap-8 mb-20">
+                <!-- Windows (.exe) -->
                 <div
-                    class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-400 mb-6">
-                    <i class="fab fa-linux text-3xl"></i>
+                    class="relative bg-cubic-darker p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center opacity-70 overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-cubic-dark/40 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center transition-all duration-300 group-hover:backdrop-blur-none group-hover:bg-cubic-dark/20">
+                        <div
+                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mb-3">
+                            <i class="fas fa-lock text-sm text-cubic-text-secondary"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-[0.2em] text-cubic-primary">En
+                            desarrollo</span>
+                    </div>
+
+                    <div
+                        class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400/50 mb-6">
+                        <i class="fab fa-windows text-3xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-cubic-text-secondary mb-2">Windows</h2>
+                    <p class="text-cubic-text-secondary/50 mb-8 h-12">Instalador Nativo (.EXE)</p>
+                    <div class="mt-auto w-full">
+                        <button disabled
+                            class="bg-white/5 border border-white/10 text-cubic-text-secondary/50 w-full block text-center py-3 rounded-lg cursor-not-allowed">
+                            Bloqueado
+                        </button>
+                    </div>
                 </div>
-                <div class="mb-2 flex items-center gap-2">
-                    <h2 class="text-2xl font-bold">Linux</h2>
-                    <span
-                        class="os-badge bg-cubic-primary text-cubic-dark text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Recomendado</span>
+
+                <!-- macOS (.dmg) -->
+                <div
+                    class="relative bg-cubic-darker p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center opacity-70 overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-cubic-dark/40 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center transition-all duration-300 group-hover:backdrop-blur-none group-hover:bg-cubic-dark/20">
+                        <div
+                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mb-3">
+                            <i class="fas fa-lock text-sm text-cubic-text-secondary"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-[0.2em] text-cubic-primary">En
+                            desarrollo</span>
+                    </div>
+
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white/50 mb-6">
+                        <i class="fab fa-apple text-3xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-cubic-text-secondary mb-2">macOS</h2>
+                    <p class="text-cubic-text-secondary/50 mb-8 h-12">Imagen de Disco (.DMG)</p>
+                    <div class="mt-auto w-full">
+                        <button disabled
+                            class="bg-white/5 border border-white/10 text-cubic-text-secondary/50 w-full block text-center py-3 rounded-lg cursor-not-allowed">
+                            Bloqueado
+                        </button>
+                    </div>
                 </div>
-                <p class="text-cubic-text-secondary mb-8 h-12">Universal (.JAR)</p>
-                <div class="mt-auto w-full">
-                    <a href="https://github.com/CubicLauncher/CubicLauncher/releases/latest"
-                        class="btn-primary w-full block text-center py-3">
-                        Descargar .JAR
-                    </a>
+
+                <!-- Linux (.deb) -->
+                <div
+                    class="relative bg-cubic-darker p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center opacity-70 overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-cubic-dark/40 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center transition-all duration-300 group-hover:backdrop-blur-none group-hover:bg-cubic-dark/20">
+                        <div
+                            class="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mb-3">
+                            <i class="fas fa-lock text-sm text-cubic-text-secondary"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-[0.2em] text-cubic-primary">En
+                            desarrollo</span>
+                    </div>
+
+                    <div
+                        class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-400/50 mb-6">
+                        <i class="fab fa-linux text-3xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-cubic-text-secondary mb-2">Linux</h2>
+                    <p class="text-cubic-text-secondary/50 mb-8 h-12">Paquete Debian (.DEB)</p>
+                    <div class="mt-auto w-full">
+                        <button disabled
+                            class="bg-white/5 border border-white/10 text-cubic-text-secondary/50 w-full block text-center py-3 rounded-lg cursor-not-allowed">
+                            Bloqueado
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -204,6 +307,42 @@
     <script src="indexSctructure/js/tailwindConfig.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Tab Switching Logic
+            const btnOld = document.getElementById('btn-old');
+            const btnNew = document.getElementById('btn-new');
+            const viewOld = document.getElementById('view-old');
+            const viewNew = document.getElementById('view-new');
+
+            function switchTab(target) {
+                if (target === 'old') {
+                    viewOld.classList.remove('hidden');
+                    viewOld.classList.add('grid');
+                    viewNew.classList.add('hidden');
+                    viewNew.classList.remove('grid');
+
+                    btnOld.classList.add('bg-white/10', 'text-white', 'shadow-lg');
+                    btnOld.classList.remove('text-cubic-text-secondary', 'hover:text-white', 'hover:bg-white/5');
+
+                    btnNew.classList.add('text-cubic-text-secondary', 'hover:text-white', 'hover:bg-white/5');
+                    btnNew.classList.remove('bg-white/10', 'text-white', 'shadow-lg');
+                } else {
+                    viewNew.classList.remove('hidden');
+                    viewNew.classList.add('grid');
+                    viewOld.classList.add('hidden');
+                    viewOld.classList.remove('grid');
+
+                    btnNew.classList.add('bg-white/10', 'text-white', 'shadow-lg');
+                    btnNew.classList.remove('text-cubic-text-secondary', 'hover:text-white', 'hover:bg-white/5');
+
+                    btnOld.classList.add('text-cubic-text-secondary', 'hover:text-white', 'hover:bg-white/5');
+                    btnOld.classList.remove('bg-white/10', 'text-white', 'shadow-lg');
+                }
+            }
+
+            btnOld.addEventListener('click', () => switchTab('old'));
+            btnNew.addEventListener('click', () => switchTab('new'));
+
+            // OS Detection Logic
             const platform = window.navigator.platform.toLowerCase();
             const userAgent = window.navigator.userAgent.toLowerCase();
             const osMessage = document.getElementById('os-message');
